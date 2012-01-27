@@ -28,7 +28,7 @@
 					<instructions>
 						<Export-Package>memory.*</Export-Package>
 						<Private-Package>org.apache.log4j</Private-Package>
-						<Main-Class>memory.App</Main-Class>
+						<Main-Class>memory.Main</Main-Class>
 					</instructions>
 				</configuration>
 			</plugin>
