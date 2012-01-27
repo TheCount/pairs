@@ -1,5 +1,8 @@
 package memory.ui;
 
+import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.*;
 
 import memory.util.Message;
@@ -14,8 +17,17 @@ public class MainWindow extends JFrame {
 	public MainWindow() {
 		super( Message.get( "label-concentration" ).toString() );
 		setDefaultCloseOperation( EXIT_ON_CLOSE );
-		JLabel label = new JLabel( Message.get( "label-concentration" ).toString() );
-		getContentPane().add( label );
+
+		/* Menu */
+		JMenu fileMenu = new JMenu( Message.get( "menu-file" ).toString() );
+		fileMenu.add( new AbstractAction( Message.get( "menu-exit" ).toString() ) {
+			public void actionPerformed( ActionEvent e ) {
+				System.exit( 0 );
+			}
+		} );
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.add( fileMenu );
+		setJMenuBar( menuBar );
 
 		pack();
 		setVisible( true );
