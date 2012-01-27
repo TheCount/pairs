@@ -1,6 +1,10 @@
 package memory;
 
+import javax.swing.*;
+
 import org.apache.log4j.BasicConfigurator;
+
+import memory.ui.MainWindow;
 
 import memory.util.Message;
 
@@ -19,6 +23,10 @@ public class Main {
 	 * @param args Program arguments.
 	 */
 	public static void main( String... args ) {
-		System.out.println( Message.get( "label-test" ) );
+		SwingUtilities.invokeLater( new Runnable() {
+			public void run() {
+				new MainWindow();
+			}
+		} );
 	}
 }
