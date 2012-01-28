@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-import memory.util.Message;
+import static memory.util.Message._;
 
 /**
  * Main window.
@@ -15,12 +15,12 @@ public class MainWindow extends JFrame {
 	 * Displays main window.
 	 */
 	public MainWindow() {
-		super( Message.get( "label-concentration" ).toString() );
+		super( _( "label-concentration" ) );
 		setDefaultCloseOperation( EXIT_ON_CLOSE );
 
 		/* Menu */
-		JMenu fileMenu = new JMenu( Message.get( "menu-file" ).toString() );
-		fileMenu.add( new AbstractAction( Message.get( "menu-exit" ).toString() ) {
+		JMenu fileMenu = new JMenu( _( "menu-file" ) );
+		fileMenu.add( new AbstractAction( _( "menu-exit" ) ) {
 			public void actionPerformed( ActionEvent e ) {
 				System.exit( 0 );
 			}

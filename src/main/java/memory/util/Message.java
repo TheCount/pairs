@@ -92,4 +92,27 @@ public final class Message {
 	public static Message get( String key ) {
 		return new Message( key, null );
 	}
+
+	/**
+	 * Obtains a rendered message.
+	 *
+	 * @param key Message key.
+	 * @param args Message args.
+	 *
+	 * @return The rendered message string is returned.
+	 */
+	public static String _( String key, String... args ) {
+		return new Message( key, args ).toString();
+	}
+
+	/**
+	 * Obtains a rendered message without parameters.
+	 *
+	 * @param key Message key.
+	 *
+	 * @return The rendered message string is returned.
+	 */
+	public static String _( String key ) {
+		return new Message( key, null ).toString();
+	}
 }
