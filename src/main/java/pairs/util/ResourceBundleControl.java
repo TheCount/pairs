@@ -1,4 +1,4 @@
-package memory.util;
+package pairs.util;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

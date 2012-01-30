@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>memory</groupId>
-	<artifactId>memory</artifactId>
+	<groupId>pairs</groupId>
+	<artifactId>pairs</artifactId>
 	<packaging>bundle</packaging>
 	<version>0.1</version>
-	<name>memory</name>
+	<name>pairs</name>
 	<url>http://maven.apache.org</url>
 
 	<build>
@@ -26,9 +26,9 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>memory.*</Export-Package>
+						<Export-Package>pairs.*</Export-Package>
 						<Private-Package>org.apache.log4j,org.apache.log4j.helpers,org.apache.log4j.or,org.apache.log4j.spi</Private-Package>
-						<Main-Class>memory.Main</Main-Class>
+						<Main-Class>pairs.Main</Main-Class>
 					</instructions>
 				</configuration>
 			</plugin>

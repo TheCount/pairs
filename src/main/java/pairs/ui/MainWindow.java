@@ -1,11 +1,11 @@
-package memory.ui;
+package pairs.ui;
 
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
 
-import static memory.util.Message._;
+import static pairs.util.Message._;
 
 /**
  * Main window.

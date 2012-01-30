@@ -1,4 +1,4 @@
-package memory;
+package pairs;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

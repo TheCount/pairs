@@ -1,12 +1,12 @@
-package memory;
+package pairs;
 
 import javax.swing.*;
 
 import org.apache.log4j.BasicConfigurator;
 
-import memory.ui.MainWindow;
+import pairs.ui.MainWindow;
 
-import memory.util.Message;
+import pairs.util.Message;
 
 /**
  * Main class.

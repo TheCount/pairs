@@ -1,4 +1,4 @@
-package memory.util;
+package pairs.util;
 
 import java.util.IllegalFormatException;
 import java.util.MissingResourceException;
