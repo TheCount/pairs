@@ -1,0 +1,6 @@
+This program is open source software. Its various components are available
+under the following licences:
+
+* Java source files (*.java) and translation files (Messages*.properties):
+	GNU General Public License version 3 or later
+	Licence text: src/main/resources/licences/GPL-3
