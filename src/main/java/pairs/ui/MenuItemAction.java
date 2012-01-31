@@ -30,13 +30,13 @@ import org.apache.log4j.Logger;
 import static pairs.util.Message._;
 
 /**
- * Abstract menu action.
+ * Abstract menu item action.
  */
-abstract class MenuAction extends AbstractAction {
+abstract class MenuItemAction extends AbstractAction {
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger logger = Logger.getLogger( MenuAction.class );
+	private static final Logger logger = Logger.getLogger( MenuItemAction.class );
 
 	/**
 	 * Parses a single VK_* key.
@@ -98,7 +98,7 @@ abstract class MenuAction extends AbstractAction {
 	}
 
 	/**
-	 * Creates a new menu action.
+	 * Creates a new menu item action.
 	 *
 	 * @param titleKey Action title key.
 	 * @param mnemoKey Action mnemonic key. Ignored if null.
@@ -106,7 +106,7 @@ abstract class MenuAction extends AbstractAction {
 	 * @param shortdescKey Key for short description. Ignored if null.
 	 * @param longdescKey Key for long description. Ignored if null.
 	 */
-	protected MenuAction( String titleKey, String mnemoKey, String accelKey, String shortdescKey, String longdescKey ) {
+	protected MenuItemAction( String titleKey, String mnemoKey, String accelKey, String shortdescKey, String longdescKey ) {
 		super( _( titleKey ) );
 		if ( mnemoKey != null ) {
 			try {
@@ -131,11 +131,11 @@ abstract class MenuAction extends AbstractAction {
 	}
 
 	/**
-	 * Creates a new menu action with default parameters derived from the title key.
+	 * Creates a new menu item action with default parameters derived from the title key.
 	 *
 	 * @param titleKey Action title key.
 	 */
-	protected MenuAction( String titleKey ) {
+	protected MenuItemAction( String titleKey ) {
 		this( titleKey, titleKey + "-mnemo", titleKey + "-accel", titleKey + "-shortdesc", titleKey + "-longdesc" );
 	}
 }
