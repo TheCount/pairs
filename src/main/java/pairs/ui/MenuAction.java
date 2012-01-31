@@ -18,36 +18,37 @@
 
 package pairs.ui;
 
-import java.awt.*;
-import java.awt.event.*;
-
-import javax.swing.*;
-
-import static pairs.util.Message._;
+import java.awt.event.ActionEvent;
 
 /**
- * Main window.
+ * Menu action.
  */
-public class MainWindow extends JFrame {
+class MenuAction extends MenuItemAction {
 	/**
-	 * Displays main window.
+	 * Creates a new menu action.
+	 *
+	 * @param titleKey Action title key.
+	 * @param mnemoKey Action mnemonic key. Ignored if null.
 	 */
-	public MainWindow() {
-		super( _( "label-concentration" ) );
-		setDefaultCloseOperation( EXIT_ON_CLOSE );
+	protected MenuAction( String titleKey, String mnemoKey ) {
+		super( titleKey, mnemoKey, null, null, null );
+	}
 
-		/* Menu */
-		JMenu fileMenu = new JMenu( new MenuAction( "menu-file" ) );
-		fileMenu.add( new MenuItemAction( "menu-exit" ) {
-			public void actionPerformed( ActionEvent e ) {
-				System.exit( 0 );
-			}
-		} );
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.add( fileMenu );
-		setJMenuBar( menuBar );
+	/**
+	 * Creates a new menu action with default parameters derived from title key.
+	 *
+	 * @param titleKey Action title key.
+	 */
+	protected MenuAction( String titleKey ) {
+		this( titleKey, titleKey + "-mnemo" );
+	}
 
-		pack();
-		setVisible( true );
+	/**
+	 * Menu action.
+	 * Does nothing by default.
+	 *
+	 * @param e Action event.
+	 */
+	public void actionPerformed( ActionEvent e ) {
 	}
 }
