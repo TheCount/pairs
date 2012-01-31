@@ -90,6 +90,10 @@ abstract class MenuItemAction extends AbstractAction {
 				key = key.substring( 2 );
 				continue;
 			}
+			if ( key.startsWith( "S-" ) ) {
+				modifiers |= Event.SHIFT_MASK;
+				key = key.substring( 2 );
+			}
 			break;
 		}
 		try {
