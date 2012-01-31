@@ -27,6 +27,8 @@ import javax.swing.KeyStroke;
 
 import org.apache.log4j.Logger;
 
+import pairs.util.Message;
+
 import static pairs.util.Message._;
 
 /**
@@ -101,31 +103,31 @@ abstract class MenuItemAction extends AbstractAction {
 	 * Creates a new menu item action.
 	 *
 	 * @param titleKey Action title key.
-	 * @param mnemoKey Action mnemonic key. Ignored if null.
-	 * @param accelKey Action accelerator key. Ignored if null.
-	 * @param shortdescKey Key for short description. Ignored if null.
-	 * @param longdescKey Key for long description. Ignored if null.
+	 * @param mnemoKey Action mnemonic key. Ignored if empty.
+	 * @param accelKey Action accelerator key. Ignored if empty.
+	 * @param shortdescKey Key for short description. Ignored if empty.
+	 * @param longdescKey Key for long description. Ignored if empty.
 	 */
 	protected MenuItemAction( String titleKey, String mnemoKey, String accelKey, String shortdescKey, String longdescKey ) {
 		super( _( titleKey ) );
-		if ( mnemoKey != null ) {
+		if ( !Message.isEmpty( mnemoKey ) ) {
 			try {
 				putValue( MNEMONIC_KEY, parseKey( _( mnemoKey ) ) );
 			} catch ( IllegalArgumentException e ) {
 				logger.error( _( "error-mnemonickey", mnemoKey, _( titleKey ) ), e );
 			}
 		}
-		if ( accelKey != null ) {
+		if ( !Message.isEmpty( accelKey ) ) {
 			try {
 				putValue( ACCELERATOR_KEY, parseKeystroke( _( accelKey ) ) );
 			} catch ( IllegalArgumentException e ) {
 				logger.error( _( "error-accelkey", accelKey, _( titleKey ) ), e );
 			}
 		}
-		if ( shortdescKey != null ) {
+		if ( !Message.isEmpty( shortdescKey ) ) {
 			putValue( SHORT_DESCRIPTION, _( shortdescKey ) );
 		}
-		if ( longdescKey != null ) {
+		if ( !Message.isEmpty( longdescKey ) ) {
 			putValue( LONG_DESCRIPTION, _( longdescKey ) );
 		}
 	}

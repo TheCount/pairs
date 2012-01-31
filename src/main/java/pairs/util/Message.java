@@ -70,6 +70,8 @@ public final class Message {
 	 * Renders a message.
 	 *
 	 * @return The rendered message is returned.
+	 * 	If the key the message was constructed with does not exist, the empty string is returned.
+	 * 	If formatting the message fails, the raw format string is returned.
 	 */
 	public String toString() {
 		String format;
@@ -77,7 +79,7 @@ public final class Message {
 			format = messages.getString( key );
 		} catch ( MissingResourceException e ) {
 			logger.error( "Message key not found: " + key, e );
-			format = key;
+			return "";
 		}
 		if ( args == null ) {
 			return format;
@@ -134,5 +136,17 @@ public final class Message {
 	 */
 	public static String _( String key ) {
 		return new Message( key, null ).toString();
+	}
+
+	/**
+	 * Checks whether a message is empty.
+	 * 
+	 * @return Whether the message is empty is returned.
+	 */
+	public static boolean isEmpty( String key ) {
+		if ( key == null ) {
+			return true;
+		}
+		return "".equals( new Message( key, null ).toString().trim() );
 	}
 }

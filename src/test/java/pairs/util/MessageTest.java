@@ -49,7 +49,7 @@ public class MessageTest {
 	 * Non-existent key test.
 	 */
 	@Test public void nonexistentKeyTest() {
-		assertEquals( "foo", Message._( "foo" ) );
+		assertEquals( "", Message._( "foo" ) );
 	}
 
 	/**
