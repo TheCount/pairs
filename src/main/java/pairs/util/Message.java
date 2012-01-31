@@ -56,7 +56,7 @@ public final class Message {
 	 *
 	 * @throws NullPointerException if key is null.
 	 */
-	private Message( String key, String[] args ) {
+	private Message( String key, Object[] args ) {
 		if ( key == null ) {
 			throw new NullPointerException();
 		}
@@ -96,7 +96,7 @@ public final class Message {
 	 *
 	 * @return The appropriate message is returned.
 	 */
-	public static Message get( String key, String... args ) {
+	public static Message get( String key, Object... args ) {
 		return new Message( key, args );
 	}
 
@@ -119,7 +119,7 @@ public final class Message {
 	 *
 	 * @return The rendered message string is returned.
 	 */
-	public static String _( String key, String... args ) {
+	public static String _( String key, Object... args ) {
 		return new Message( key, args ).toString();
 	}
 
