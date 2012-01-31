@@ -80,7 +80,7 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 		JMenu helpMenu = new JMenu( new MenuAction( "menu-help" ) );
 		helpMenu.add( new MenuItemAction( "menu-about" ) {
 			public void actionPerformed( ActionEvent e ) {
-				// FIXME
+				new AboutBox( MainWindow.this );
 			}
 		} );
 		JMenuBar menuBar = new JMenuBar();
