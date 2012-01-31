@@ -74,7 +74,7 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 		JMenu fileMenu = new JMenu( new MenuAction( "menu-file" ) );
 		fileMenu.add( new MenuItemAction( "menu-exit" ) {
 			public void actionPerformed( ActionEvent e ) {
-				System.exit( 0 );
+				MainWindow.this.dispose();
 			}
 		} );
 		JMenu helpMenu = new JMenu( new MenuAction( "menu-help" ) );
