@@ -18,6 +18,8 @@
 
 package pairs.util;
 
+import java.text.MessageFormat;
+
 import java.util.IllegalFormatException;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -81,7 +83,7 @@ public final class Message {
 			return format;
 		}
 		try {
-			return String.format( format, args );
+			return MessageFormat.format( format, args );
 		} catch ( IllegalFormatException e ) {
 			logger.error( "Invalid message format: " + format, e );
 			return format;
