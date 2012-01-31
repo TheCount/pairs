@@ -36,13 +36,20 @@ class AboutBox extends JDialog {
 	 */
 	AboutBox( Frame owner ) {
 		super( owner, _( "label-about" ) );
+
+		/* Dispose on close */
 		setDefaultCloseOperation( DISPOSE_ON_CLOSE );
+
+		/* Layout */
 		setLayout( new BorderLayout() );
+		add( new JTextArea( _( "about-heading" ) ), BorderLayout.NORTH );
 		add( new JButton( new ButtonAction( "button-close" ) {
 			public void actionPerformed( ActionEvent e ) {
 				AboutBox.this.dispose();
 			}
 		} ), BorderLayout.SOUTH );
+
+		/* Display */
 		pack();
 		setVisible( true );
 	}
