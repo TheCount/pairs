@@ -4,3 +4,7 @@ under the following licences:
 * Java source files (*.java) and translation files (Messages*.properties):
 	GNU General Public License version 3 or later
 	Licence text: src/main/resources/licences/GPL-3
+
+* Apache log4j 1.2 © 1999-2010 Apache Software Foundation:
+	Apache License version 2.0
+	Licence text: src/main/resources/licences/Apache-2.0
