@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
 
 		/* Menu */
 		JMenu fileMenu = new JMenu( _( "menu-file" ) );
-		fileMenu.add( new AbstractAction( _( "menu-exit" ) ) {
+		fileMenu.add( new MenuAction( "menu-exit" ) {
 			public void actionPerformed( ActionEvent e ) {
 				System.exit( 0 );
 			}
