@@ -21,6 +21,8 @@ package pairs.ui;
 import java.awt.*;
 import java.awt.event.*;
 
+import java.util.prefs.Preferences;
+
 import javax.swing.*;
 
 import static pairs.util.Message._;
@@ -28,12 +30,44 @@ import static pairs.util.Message._;
 /**
  * Main window.
  */
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements ComponentListener, WindowStateListener {
+	/**
+	 * Minimum window width.
+	 */
+	private static final int MIN_WIDTH = 600;
+
+	/**
+	 * Minimum window height.
+	 */
+	private static final int MIN_HEIGHT = 400;
+
+	/**
+	 * Preferences for this class.
+	 */
+	private static final Preferences preferences = Preferences.userNodeForPackage( MainWindow.class );
+
+	/**
+	 * Window width preference key.
+	 */
+	private static final String PREF_WIDTH = "mainWindowWidth";
+
+	/**
+	 * Window height preference key.
+	 */
+	private static final String PREF_HEIGHT = "mainWindowHeight";
+
+	/**
+	 * Window state preference key.
+	 */
+	private static final String PREF_STATE = "mainWindowState";
+
 	/**
 	 * Displays main window.
 	 */
 	public MainWindow() {
 		super( _( "label-concentration" ) );
+
+		/* Default close operation */
 		setDefaultCloseOperation( EXIT_ON_CLOSE );
 
 		/* Menu */
@@ -47,7 +81,37 @@ public class MainWindow extends JFrame {
 		menuBar.add( fileMenu );
 		setJMenuBar( menuBar );
 
-		pack();
+		/* Window sizing */
+		addComponentListener( this );
+		addWindowStateListener( this );
+		setSize( preferences.getInt( PREF_WIDTH, MIN_WIDTH ), preferences.getInt( PREF_HEIGHT, MIN_HEIGHT ) );
+		setExtendedState( preferences.getInt( PREF_STATE, NORMAL ) );
+		validate();
 		setVisible( true );
+	}
+
+	public void componentHidden( ComponentEvent e ) {
+	}
+
+	public void componentMoved( ComponentEvent e ) {
+	}
+
+	public void componentResized( ComponentEvent e ) {
+		int width = getWidth();
+		int height = getHeight();
+		if ( ( width < MIN_WIDTH ) || ( height < MIN_HEIGHT ) ) {
+			width = Math.max( width, MIN_WIDTH );
+			height = Math.max( height, MIN_HEIGHT );
+			setSize( width, height );
+		}
+		preferences.putInt( PREF_WIDTH, width );
+		preferences.putInt( PREF_HEIGHT, height );
+	}
+
+	public void componentShown( ComponentEvent e ) {
+	}
+
+	public void windowStateChanged( WindowEvent e ) {
+		preferences.putInt( PREF_STATE, e.getNewState() );
 	}
 }
