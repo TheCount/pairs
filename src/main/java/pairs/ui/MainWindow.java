@@ -77,8 +77,15 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 				System.exit( 0 );
 			}
 		} );
+		JMenu helpMenu = new JMenu( new MenuAction( "menu-help" ) );
+		helpMenu.add( new MenuItemAction( "menu-about" ) {
+			public void actionPerformed( ActionEvent e ) {
+				// FIXME
+			}
+		} );
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add( fileMenu );
+		menuBar.add( helpMenu );
 		setJMenuBar( menuBar );
 
 		/* Window sizing */
