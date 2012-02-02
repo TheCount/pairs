@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 /**
  * Menu action.
  */
-class MenuAction extends MenuItemAction {
+class MenuAction extends GenericAction {
 	/**
 	 * Creates a new menu action.
 	 *

@@ -18,130 +18,16 @@
 
 package pairs.ui;
 
-import java.awt.Event;
-
-import java.awt.event.KeyEvent;
-
-import javax.swing.AbstractAction;
-import javax.swing.KeyStroke;
-
-import org.apache.log4j.Logger;
-
-import pairs.util.Message;
-
-import static pairs.util.Message._;
-
 /**
  * Abstract menu item action.
  */
-abstract class MenuItemAction extends AbstractAction {
-	/**
-	 * Logger for this class.
-	 */
-	private static final Logger logger = Logger.getLogger( MenuItemAction.class );
-
-	/**
-	 * Parses a single VK_* key.
-	 *
-	 * @param key Key string.
-	 *
-	 * @return The appropriate key code is returned.
-	 *
-	 * @throws NullPointerException if key is null.
-	 * @throws IllegalArgumentException if key does not yield a valid key code.
-	 */
-	private static int parseKey( String key ) {
-		if ( key == null ) {
-			throw new NullPointerException();
-		}
-		try {
-			return KeyEvent.class.getField( "VK_" + key ).getInt( null );
-		} catch ( Exception e ) {
-			throw new IllegalArgumentException( _( "error-parsekey", key ), e );
-		}
-	}
-
-	/**
-	 * Parses a keystroke.
-	 * The keystroke string may start with "C-" for a control modifier, or "A-" for an Alt modifier, or both.
-	 * The remainder is interpreted as a VK_* key.
-	 *
-	 * @param keyString Keystroke string.
-	 *
-	 * @return The appropriate keystroke is returned.
-	 *
-	 * @throws NullPointerException if keyString is null.
-	 * @throws IllegalArgumentException if keyString does not yield a valid keystroke.
-	 */
-	private static KeyStroke parseKeystroke( final String keyString ) {
-		if ( keyString == null ) {
-			throw new NullPointerException();
-		}
-		int modifiers = 0;
-		String key = keyString;
-		for ( ;; ) {
-			if ( key.startsWith( "C-" ) ) {
-				modifiers |= Event.CTRL_MASK;
-				key = key.substring( 2 );
-				continue;
-			}
-			if ( key.startsWith( "A-" ) ) {
-				modifiers |= Event.ALT_MASK;
-				key = key.substring( 2 );
-				continue;
-			}
-			if ( key.startsWith( "S-" ) ) {
-				modifiers |= Event.SHIFT_MASK;
-				key = key.substring( 2 );
-			}
-			break;
-		}
-		try {
-			return KeyStroke.getKeyStroke( parseKey( key ), modifiers );
-		} catch ( IllegalArgumentException e ) {
-			throw new IllegalArgumentException( _( "error-parsekeystroke", keyString ), e );
-		}
-	}
-
+abstract class MenuItemAction extends GenericAction {
 	/**
 	 * Creates a new menu item action.
 	 *
-	 * @param titleKey Action title key.
-	 * @param mnemoKey Action mnemonic key. Ignored if empty.
-	 * @param accelKey Action accelerator key. Ignored if empty.
-	 * @param shortdescKey Key for short description. Ignored if empty.
-	 * @param longdescKey Key for long description. Ignored if empty.
-	 */
-	protected MenuItemAction( String titleKey, String mnemoKey, String accelKey, String shortdescKey, String longdescKey ) {
-		super( _( titleKey ) );
-		if ( !Message.isEmpty( mnemoKey ) ) {
-			try {
-				putValue( MNEMONIC_KEY, parseKey( _( mnemoKey ) ) );
-			} catch ( IllegalArgumentException e ) {
-				logger.error( _( "error-mnemonickey", mnemoKey, _( titleKey ) ), e );
-			}
-		}
-		if ( !Message.isEmpty( accelKey ) ) {
-			try {
-				putValue( ACCELERATOR_KEY, parseKeystroke( _( accelKey ) ) );
-			} catch ( IllegalArgumentException e ) {
-				logger.error( _( "error-accelkey", accelKey, _( titleKey ) ), e );
-			}
-		}
-		if ( !Message.isEmpty( shortdescKey ) ) {
-			putValue( SHORT_DESCRIPTION, _( shortdescKey ) );
-		}
-		if ( !Message.isEmpty( longdescKey ) ) {
-			putValue( LONG_DESCRIPTION, _( longdescKey ) );
-		}
-	}
-
-	/**
-	 * Creates a new menu item action with default parameters derived from the title key.
-	 *
-	 * @param titleKey Action title key.
+	 * @param titlKey Action title key.
 	 */
 	protected MenuItemAction( String titleKey ) {
-		this( titleKey, titleKey + "-mnemo", titleKey + "-accel", titleKey + "-shortdesc", titleKey + "-longdesc" );
+		super( titleKey );
 	}
 }
