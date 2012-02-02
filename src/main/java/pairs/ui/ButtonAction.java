@@ -21,7 +21,7 @@ package pairs.ui;
 /**
  * Button action class.
  */
-abstract class ButtonAction extends MenuItemAction {
+abstract class ButtonAction extends GenericAction {
 	/**
 	 * Creates a new button action.
 	 *
