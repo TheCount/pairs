@@ -30,6 +30,35 @@ import static pairs.util.Message._;
  */
 class AboutBox extends JDialog {
 	/**
+	 * Default text width in columns.
+	 */
+	private static final int DEFAULT_COLS = 50;
+
+	/**
+	 * Creates a text area with some default properties.
+	 *
+	 * @param textKey Text key of displayed text.
+	 *
+	 * @return A suitable text area is returned.
+	 */
+	private static JTextArea makeTextArea( String textKey ) {
+		JTextArea textArea = new JTextArea( _( textKey ), 0, DEFAULT_COLS );
+		textArea.setEditable( false );
+		textArea.setLineWrap( true );
+		textArea.setWrapStyleWord( true );
+		return textArea;
+	}
+
+	/**
+	 * Creates default insets.
+	 *
+	 * @return Default insets are returned.
+	 */
+	private static Insets defaultInsets() {
+		return new Insets( 5, 5, 5, 5 );
+	}
+
+	/**
 	 * Creates a new about box.
 	 *
 	 * @param owner Owner of the about box.
@@ -41,15 +70,59 @@ class AboutBox extends JDialog {
 		setDefaultCloseOperation( DISPOSE_ON_CLOSE );
 
 		/* Layout */
-		setLayout( new BorderLayout() );
-		JTextArea textArea = new JTextArea( _( "about-heading" ) );
-		textArea.setEditable( false );
-		add( textArea, BorderLayout.NORTH );
+		setLayout( new GridBagLayout() );
+		GridBagConstraints c;
+
+		c = new GridBagConstraints();
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 2;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = defaultInsets();
+		add( makeTextArea( "about-heading" ), c );
+
+		c = new GridBagConstraints();
+		c.gridx = 0;
+		c.gridy = 1;
+		c.insets = defaultInsets();
+		add( makeTextArea( "about-source" ), c );
+
+		c = new GridBagConstraints();
+		c.gridx = 1;
+		c.gridy = 1;
+		c.insets = defaultInsets();
+		add( new JButton( new ButtonAction( "button-showlicence" ) {
+			public void actionPerformed( ActionEvent e ) {
+				// FIXME
+			}
+		} ), c );
+
+		c = new GridBagConstraints();
+		c.gridx = 0;
+		c.gridy = 2;
+		c.insets = defaultInsets();
+		add( makeTextArea( "about-log4j" ), c );
+
+		c = new GridBagConstraints();
+		c.gridx = 1;
+		c.gridy = 2;
+		c.insets = defaultInsets();
+		add( new JButton( new ButtonAction( "button-showlicence" ) {
+			public void actionPerformed( ActionEvent e ) {
+				// FIXME
+			}
+		} ), c );
+
+		c = new GridBagConstraints();
+		c.gridx = 0;
+		c.gridy = 3;
+		c.gridwidth = 2;
+		c.insets = defaultInsets();
 		add( new JButton( new ButtonAction( "button-close" ) {
 			public void actionPerformed( ActionEvent e ) {
 				AboutBox.this.dispose();
 			}
-		} ), BorderLayout.SOUTH );
+		} ), c );
 
 		/* Display */
 		pack();
