@@ -126,6 +126,7 @@ class AboutBox extends JDialog {
 
 		/* Display */
 		pack();
+		setLocationRelativeTo( null );
 		setVisible( true );
 	}
 }

@@ -94,6 +94,7 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 		setSize( preferences.getInt( PREF_WIDTH, MIN_WIDTH ), preferences.getInt( PREF_HEIGHT, MIN_HEIGHT ) );
 		setExtendedState( preferences.getInt( PREF_STATE, NORMAL ) );
 		validate();
+		setLocationRelativeTo( null );
 		setVisible( true );
 	}
 

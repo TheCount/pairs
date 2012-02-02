@@ -87,6 +87,7 @@ class TextDisplayBox extends JDialog implements ResourceConstants {
 
 		/* Display */
 		pack();
+		setLocationRelativeTo( null );
 		setVisible( true );
 	}
 }	
