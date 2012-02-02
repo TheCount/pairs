@@ -93,7 +93,7 @@ class AboutBox extends JDialog {
 		c.insets = defaultInsets();
 		add( new JButton( new ButtonAction( "button-showlicence" ) {
 			public void actionPerformed( ActionEvent e ) {
-				// FIXME
+				new TextDisplayBox( AboutBox.this, "label-gpl3", "licences/GPL-3" );
 			}
 		} ), c );
 
@@ -109,7 +109,7 @@ class AboutBox extends JDialog {
 		c.insets = defaultInsets();
 		add( new JButton( new ButtonAction( "button-showlicence" ) {
 			public void actionPerformed( ActionEvent e ) {
-				// FIXME
+				new TextDisplayBox( AboutBox.this, "label-apachelicence", "licences/Apache-2.0" );
 			}
 		} ), c );
 
