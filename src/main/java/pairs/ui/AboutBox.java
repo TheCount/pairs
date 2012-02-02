@@ -42,7 +42,9 @@ class AboutBox extends JDialog {
 
 		/* Layout */
 		setLayout( new BorderLayout() );
-		add( new JTextArea( _( "about-heading" ) ), BorderLayout.NORTH );
+		JTextArea textArea = new JTextArea( _( "about-heading" ) );
+		textArea.setEditable( false );
+		add( textArea, BorderLayout.NORTH );
 		add( new JButton( new ButtonAction( "button-close" ) {
 			public void actionPerformed( ActionEvent e ) {
 				AboutBox.this.dispose();
