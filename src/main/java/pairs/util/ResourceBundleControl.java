@@ -37,16 +37,11 @@ import java.util.ResourceBundle;
  * Someone at Sun obviously forgot to add the ability to load property
  * resources in UTF-8 format. Hence this class to workaround the problem.
  */
-public class ResourceBundleControl extends ResourceBundle.Control {
+public class ResourceBundleControl extends ResourceBundle.Control implements ResourceConstants {
 	/**
 	 * Resource bundle format.
 	 */
 	private static final String FORMAT = "properties";
-
-	/**
-	 * Resource bundle file encoding.
-	 */
-	private static final String ENCODING = "UTF-8";
 
 	// default constructed
 	
