@@ -48,7 +48,13 @@
 				<configuration>
 					<instructions>
 						<Export-Package>pairs.*</Export-Package>
-						<Private-Package>org.apache.log4j,org.apache.log4j.helpers,org.apache.log4j.or,org.apache.log4j.spi</Private-Package>
+						<Private-Package>
+							org.apache.batik.*;-split-package:=merge-first,
+							org.apache.log4j.*,
+							org.apache.xerces.*,
+							org.w3c.css.sac;-split-package:=merge-first,
+							org.w3c.dom.svg;-split-package:=merge-first,
+						</Private-Package>
 						<Main-Class>pairs.Main</Main-Class>
 					</instructions>
 				</configuration>
@@ -58,9 +64,21 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>batik</groupId>
+			<artifactId>batik-rasterizer</artifactId>
+			<version>1.6-1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.10.0</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
