@@ -85,7 +85,7 @@ class AboutBox extends JDialog {
 		c.gridx = 0;
 		c.gridy = 1;
 		c.insets = defaultInsets();
-		add( makeTextArea( "about-source" ), c );
+		add( makeTextArea( "about-warranty" ), c );
 
 		c = new GridBagConstraints();
 		c.gridx = 1;
