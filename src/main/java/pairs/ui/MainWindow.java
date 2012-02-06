@@ -82,24 +82,8 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 			SVGResource resource = new SVGResource( "images/Crystal_icons.svg" );
 			setIconImage( resource.createImage( 64, 64 ) );
 		} catch ( Exception e ) {
-			logger.error( _( "error-icon" ), e ); // FIXME: Define message
+			logger.error( _( "error-icon" ), e );
 		}
-		/* FIXME try {
-			TranscoderInput in = new TranscoderInput( ClassLoader.getSystemResourceAsStream( "images/Crystal_icons.svg" ) );
-			PNGTranscoder transcoder = new PNGTranscoder();
-			transcoder.transcode( in, null );
-			Image image = transcoder.createImage( 64, 64 );
-			setIconImage( image );
-			BufferedImage image = new BufferedImage( 64, 64, BufferedImage.TYPE_INT_ARGB );
-			Graphics2D graphics = image.createGraphics();
-			graphics.setClip( 0, 0, 64, 64 );
-			SVGUniverse svgUniverse = new SVGUniverse();
-			SVGDiagram diagram = svgUniverse.getDiagram( ClassLoader.getSystemResource( "images/Crystal_icons.svg" ).toURI(), true );
-			diagram.render( graphics );
-			setIconImage( image );
-		} catch ( Exception e ) {
-			logger.error( _( "error-icon" ), e ); // FIXME: Define message
-		} */
 
 		/* Default close operation */
 		setDefaultCloseOperation( EXIT_ON_CLOSE );
