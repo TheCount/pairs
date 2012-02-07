@@ -23,6 +23,8 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+import org.apache.log4j.Logger;
+
 import static pairs.util.Message._;
 
 /**
@@ -30,9 +32,14 @@ import static pairs.util.Message._;
  */
 class AboutBox extends JDialog {
 	/**
+	 * Logger for this class.
+	 */
+	private static final Logger logger = Logger.getLogger( AboutBox.class );
+
+	/**
 	 * Default text width in columns.
 	 */
-	private static final int DEFAULT_COLS = 50;
+	private static final int DEFAULT_COLS = 40;
 
 	/**
 	 * Creates a text area with some default properties.
@@ -59,6 +66,89 @@ class AboutBox extends JDialog {
 	}
 
 	/**
+	 * Pane with copyright information.
+	 */
+	private class CopyrightPane extends JComponent implements Scrollable, SwingConstants {
+		/**
+		 * Creates a new copyright pane.
+		 */
+		CopyrightPane() {
+			setLayout( new GridBagLayout() );
+			GridBagConstraints c;
+
+			c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 0;
+			c.gridwidth = 2;
+			c.fill = GridBagConstraints.HORIZONTAL;
+			c.insets = defaultInsets();
+			add( makeTextArea( "about-heading" ), c );
+
+			c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 1;
+			c.insets = defaultInsets();
+			add( makeTextArea( "about-warranty" ), c );
+
+			c = new GridBagConstraints();
+			c.gridx = 1;
+			c.gridy = 1;
+			c.insets = defaultInsets();
+			add( new JButton( new ButtonAction( "button-showlicence" ) {
+				public void actionPerformed( ActionEvent e ) {
+					new TextDisplayBox( AboutBox.this, "label-gpl3", "licences/GPL-3" );
+				}
+			} ), c );
+
+			c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 2;
+			c.insets = defaultInsets();
+			add( makeTextArea( "about-log4j" ), c );
+
+			c = new GridBagConstraints();
+			c.gridx = 1;
+			c.gridy = 2;
+			c.insets = defaultInsets();
+			add( new JButton( new ButtonAction( "button-showlicence" ) {
+				public void actionPerformed( ActionEvent e ) {
+					new TextDisplayBox( AboutBox.this, "label-apachelicence", "licences/Apache-2.0" );
+				}
+			} ), c );
+		}
+
+		public Dimension getPreferredScrollableViewportSize() {
+			return getPreferredSize();
+		}
+
+		public int getScrollableBlockIncrement( Rectangle visibleRect, int orientation, int direction ) {
+			if ( orientation == VERTICAL ) {
+				return getComponent( 0 ).getPreferredSize().height;
+			} else {
+				logger.warn( _( "warn-hscroll" ) );
+				return 100;
+			}
+		}
+
+		public boolean getScrollableTracksViewportHeight() {
+			return false;
+		}
+
+		public boolean getScrollableTracksViewportWidth() {
+			return false;
+		}
+
+		public int getScrollableUnitIncrement( Rectangle visibleRect, int orientation, int direction ) {
+			if ( orientation == VERTICAL ) {
+				return getComponent( 0 ).getGraphics().getFontMetrics().getHeight();
+			} else {
+				logger.warn( _( "warn-hscroll" ) );
+				return 20;
+			}
+		}
+	}
+
+	/**
 	 * Creates a new about box.
 	 *
 	 * @param owner Owner of the about box.
@@ -70,62 +160,21 @@ class AboutBox extends JDialog {
 		setDefaultCloseOperation( DISPOSE_ON_CLOSE );
 
 		/* Layout */
-		setLayout( new GridBagLayout() );
-		GridBagConstraints c;
-
-		c = new GridBagConstraints();
-		c.gridx = 0;
-		c.gridy = 0;
-		c.gridwidth = 2;
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.insets = defaultInsets();
-		add( makeTextArea( "about-heading" ), c );
-
-		c = new GridBagConstraints();
-		c.gridx = 0;
-		c.gridy = 1;
-		c.insets = defaultInsets();
-		add( makeTextArea( "about-warranty" ), c );
-
-		c = new GridBagConstraints();
-		c.gridx = 1;
-		c.gridy = 1;
-		c.insets = defaultInsets();
-		add( new JButton( new ButtonAction( "button-showlicence" ) {
-			public void actionPerformed( ActionEvent e ) {
-				new TextDisplayBox( AboutBox.this, "label-gpl3", "licences/GPL-3" );
-			}
-		} ), c );
-
-		c = new GridBagConstraints();
-		c.gridx = 0;
-		c.gridy = 2;
-		c.insets = defaultInsets();
-		add( makeTextArea( "about-log4j" ), c );
-
-		c = new GridBagConstraints();
-		c.gridx = 1;
-		c.gridy = 2;
-		c.insets = defaultInsets();
-		add( new JButton( new ButtonAction( "button-showlicence" ) {
-			public void actionPerformed( ActionEvent e ) {
-				new TextDisplayBox( AboutBox.this, "label-apachelicence", "licences/Apache-2.0" );
-			}
-		} ), c );
-
-		c = new GridBagConstraints();
-		c.gridx = 0;
-		c.gridy = 3;
-		c.gridwidth = 2;
-		c.insets = defaultInsets();
+		setLayout( new BorderLayout() );
+		add( new JScrollPane( new CopyrightPane(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER ), BorderLayout.CENTER );
 		add( new JButton( new ButtonAction( "button-close" ) {
 			public void actionPerformed( ActionEvent e ) {
 				AboutBox.this.dispose();
 			}
-		} ), c );
+		} ), BorderLayout.SOUTH );
 
 		/* Display */
 		pack();
+		Dimension size = getSize( null );
+		size.height = Integer.MAX_VALUE;
+		setMaximumSize( new Dimension( size ) );
+		size.height = 10;
+		setMinimumSize( new Dimension( size ) );
 		setLocationRelativeTo( null );
 		setVisible( true );
 	}
