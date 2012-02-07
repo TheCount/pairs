@@ -70,13 +70,40 @@ class AboutBox extends JDialog {
 	 */
 	private class CopyrightPane extends JComponent implements Scrollable, SwingConstants {
 		/**
+		 * Adds copyright info.
+		 *
+		 * @param infoKey Key to the info text key.
+		 * @param licenceKey Key to the licence name.
+		 * @param licenceResourceName Licence resource name.
+		 * @param row Row in which the copyright info is to be placed.
+		 */
+		private void addCopyrightInfo( final String infoKey, final String licenceKey, final String licenceResourceName, final int row ) {
+			GridBagConstraints c;
+		       
+			c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = row;
+			c.insets = defaultInsets();
+			add( makeTextArea( infoKey ), c );
+
+			c = new GridBagConstraints();
+			c.gridx = 1;
+			c.gridy = row;
+			c.insets = defaultInsets();
+			add( new JButton( new ButtonAction( "button-showlicence" ) {
+				public void actionPerformed( ActionEvent e ) {
+					new TextDisplayBox( AboutBox.this, licenceKey, licenceResourceName );
+				}
+			} ), c );
+		}
+
+		/**
 		 * Creates a new copyright pane.
 		 */
 		CopyrightPane() {
 			setLayout( new GridBagLayout() );
 			GridBagConstraints c;
 
-			/* Heading */
 			c = new GridBagConstraints();
 			c.gridx = 0;
 			c.gridy = 0;
@@ -85,56 +112,9 @@ class AboutBox extends JDialog {
 			c.insets = defaultInsets();
 			add( makeTextArea( "about-heading" ), c );
 
-			/* GPL warranty and licence */
-			c = new GridBagConstraints();
-			c.gridx = 0;
-			c.gridy = 1;
-			c.insets = defaultInsets();
-			add( makeTextArea( "about-warranty" ), c );
-
-			c = new GridBagConstraints();
-			c.gridx = 1;
-			c.gridy = 1;
-			c.insets = defaultInsets();
-			add( new JButton( new ButtonAction( "button-showlicence" ) {
-				public void actionPerformed( ActionEvent e ) {
-					new TextDisplayBox( AboutBox.this, "label-gpl3", "licences/GPL-3" );
-				}
-			} ), c );
-
-			/* log4j licence info */
-			c = new GridBagConstraints();
-			c.gridx = 0;
-			c.gridy = 2;
-			c.insets = defaultInsets();
-			add( makeTextArea( "about-log4j" ), c );
-
-			c = new GridBagConstraints();
-			c.gridx = 1;
-			c.gridy = 2;
-			c.insets = defaultInsets();
-			add( new JButton( new ButtonAction( "button-showlicence" ) {
-				public void actionPerformed( ActionEvent e ) {
-					new TextDisplayBox( AboutBox.this, "label-apachelicence", "licences/Apache-2.0" );
-				}
-			} ), c );
-
-			/* batik licence info */
-			c = new GridBagConstraints();
-			c.gridx = 0;
-			c.gridy = 3;
-			c.insets = defaultInsets();
-			add( makeTextArea( "about-batik" ), c );
-
-			c = new GridBagConstraints();
-			c.gridx = 1;
-			c.gridy = 3;
-			c.insets = defaultInsets();
-			add( new JButton( new ButtonAction( "button-showlicence" ) {
-				public void actionPerformed( ActionEvent e ) {
-					new TextDisplayBox( AboutBox.this, "label-apachelicence", "licences/Apache-2.0" );
-				}
-			} ), c );
+			addCopyrightInfo( "about-warranty", "label-gpl3", "licences/GPL-3", 1 );
+			addCopyrightInfo( "about-log4j", "label-apachelicence", "licences/Apache-2.0", 2 );
+			addCopyrightInfo( "about-batik", "label-apachelicence", "licences/Apache-2.0", 3 );
 		}
 
 		public Dimension getPreferredScrollableViewportSize() {
