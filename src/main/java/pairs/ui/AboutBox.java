@@ -76,6 +76,7 @@ class AboutBox extends JDialog {
 			setLayout( new GridBagLayout() );
 			GridBagConstraints c;
 
+			/* Heading */
 			c = new GridBagConstraints();
 			c.gridx = 0;
 			c.gridy = 0;
@@ -84,6 +85,7 @@ class AboutBox extends JDialog {
 			c.insets = defaultInsets();
 			add( makeTextArea( "about-heading" ), c );
 
+			/* GPL warranty and licence */
 			c = new GridBagConstraints();
 			c.gridx = 0;
 			c.gridy = 1;
@@ -100,6 +102,7 @@ class AboutBox extends JDialog {
 				}
 			} ), c );
 
+			/* log4j licence info */
 			c = new GridBagConstraints();
 			c.gridx = 0;
 			c.gridy = 2;
@@ -109,6 +112,23 @@ class AboutBox extends JDialog {
 			c = new GridBagConstraints();
 			c.gridx = 1;
 			c.gridy = 2;
+			c.insets = defaultInsets();
+			add( new JButton( new ButtonAction( "button-showlicence" ) {
+				public void actionPerformed( ActionEvent e ) {
+					new TextDisplayBox( AboutBox.this, "label-apachelicence", "licences/Apache-2.0" );
+				}
+			} ), c );
+
+			/* batik licence info */
+			c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 3;
+			c.insets = defaultInsets();
+			add( makeTextArea( "about-batik" ), c );
+
+			c = new GridBagConstraints();
+			c.gridx = 1;
+			c.gridy = 3;
 			c.insets = defaultInsets();
 			add( new JButton( new ButtonAction( "button-showlicence" ) {
 				public void actionPerformed( ActionEvent e ) {
