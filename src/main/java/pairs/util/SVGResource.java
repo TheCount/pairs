@@ -49,7 +49,7 @@ import static pairs.util.Message._;
 /**
  * SVG resource convenience class.
  */
-public class SVGResource {
+class SVGResource extends AbstractImageResource {
 	/**
 	 * SVG DOM document.
 	 */
@@ -64,11 +64,16 @@ public class SVGResource {
 	 * Creates a new SVG resource.
 	 *
 	 * @param resourceName Resource name.
+	 * @param copyrightText Copyright text.
+	 * @param licenceName Licence name.
+	 * @param licenceText Licence text.
 	 *
 	 * @throws MissingResourceException if a resource named resourceName does not exist.
 	 * @throws IOException if an error occurs while reading the resource.
+	 * @throws NullPointerException if one of the arguments is null.
 	 */
-	public SVGResource( String resourceName ) throws IOException {
+	SVGResource( String resourceName, String copyrightText, String licenceName, String licenceText ) throws IOException {
+		super( Type.SVG, copyrightText, licenceName, licenceText );
 		URL resourceURL = ClassLoader.getSystemResource( resourceName );
 		if ( resourceURL == null ) {
 			throw new MissingResourceException( _( "error-loadingresource", resourceName ), ClassLoader.class.getName(), resourceName );

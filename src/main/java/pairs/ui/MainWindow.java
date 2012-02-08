@@ -28,7 +28,8 @@ import javax.swing.*;
 
 import org.apache.log4j.Logger;
 
-import pairs.util.SVGResource;
+import pairs.util.ImageResource;
+import pairs.util.ImageResourceLoader;
 
 import static pairs.util.Message._;
 
@@ -79,7 +80,7 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 
 		/* Program icon */
 		try {
-			SVGResource resource = new SVGResource( "images/Crystal_icons.svg" );
+			ImageResource resource = ImageResourceLoader.load( "program-icon" );
 			setIconImage( resource.createImage( 64, 64 ) );
 		} catch ( Exception e ) {
 			logger.error( _( "error-icon" ), e );

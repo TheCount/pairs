@@ -67,6 +67,7 @@
 							org.apache.batik.*;-split-package:=merge-first,
 							org.apache.log4j.*,
 							org.apache.xerces.*,
+							org.codehaus.jackson.*;-split-package:=merge-first,
 							org.w3c.css.sac;-split-package:=merge-first,
 							org.w3c.dom.svg;-split-package:=merge-first,
 						</Private-Package>
@@ -94,6 +95,12 @@
 			<groupId>xerces</groupId>
 			<artifactId>xercesImpl</artifactId>
 			<version>2.10.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.4</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
