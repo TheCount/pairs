@@ -68,7 +68,7 @@ class TextDisplayBox extends JDialog {
 		JTextArea textArea = new JTextArea( text, 20, 0 );
 		textArea.setEditable( false );
 		JScrollPane scrollPane = new JScrollPane( textArea );
-		add( scrollPane, BorderLayout.NORTH );
+		add( scrollPane, BorderLayout.CENTER );
 		add( new JButton( new ButtonAction( "button-close" ) {
 			public void actionPerformed( ActionEvent e ) {
 				TextDisplayBox.this.dispose();
