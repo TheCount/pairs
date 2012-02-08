@@ -116,7 +116,8 @@ class AboutBox extends JDialog {
 			addCopyrightInfo( "about-log4j", "label-apachelicence", "licences/Apache-2.0", 2 );
 			addCopyrightInfo( "about-batik", "label-apachelicence", "licences/Apache-2.0", 3 );
 			addCopyrightInfo( "about-xerces", "label-apachelicence", "licences/Apache-2.0", 4 );
-			addCopyrightInfo( "about-crystal", "label-lgpl2.1", "licences/LGPL-2.1", 5 );
+			addCopyrightInfo( "about-jackson", "label-apachelicence", "licences/Apache-2.0", 5 );
+			addCopyrightInfo( "about-crystal", "label-lgpl2.1", "licences/LGPL-2.1", 6 );
 		}
 
 		public Dimension getPreferredScrollableViewportSize() {
