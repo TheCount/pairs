@@ -21,21 +21,18 @@ package pairs.ui;
 import java.awt.*;
 import java.awt.event.*;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import javax.swing.*;
 
 import org.apache.log4j.Logger;
 
-import pairs.util.ResourceConstants;
+import pairs.util.Resources;
 
 import static pairs.util.Message._;
 
 /**
  * Box displaying text from a resource.
  */
-class TextDisplayBox extends JDialog implements ResourceConstants {
+class TextDisplayBox extends JDialog {
 	/**
 	 * Logger for this class.
 	 */
@@ -55,18 +52,11 @@ class TextDisplayBox extends JDialog implements ResourceConstants {
 		setDefaultCloseOperation( DISPOSE_ON_CLOSE );
 
 		/* Load resource */
-		StringBuilder sb = new StringBuilder();
+		String text;
 		try {
-			InputStream in = ClassLoader.getSystemResourceAsStream( resourceName );
-			InputStreamReader inr = new InputStreamReader( in, ENCODING );
-			char[] buf = new char[4096];
-			int read;
-			while ( ( read = inr.read( buf, 0, buf.length ) ) != -1 ) {
-				sb.append( buf, 0, read );
-			}
-			inr.close();
+			text = Resources.loadResourceAsString( resourceName );
 		} catch ( Exception e ) {
-			String errorMsg = _( "error-loadingresource", resourceName );
+			String errorMsg = _( "error-loadingtext", resourceName );
 			logger.error( errorMsg, e );
 			JOptionPane.showMessageDialog( this, errorMsg, _( "error" ), JOptionPane.ERROR_MESSAGE );
 			dispose();
@@ -75,7 +65,7 @@ class TextDisplayBox extends JDialog implements ResourceConstants {
 
 		/* Layout */
 		setLayout( new BorderLayout() );
-		JTextArea textArea = new JTextArea( sb.toString(), 20, 0 );
+		JTextArea textArea = new JTextArea( text, 20, 0 );
 		textArea.setEditable( false );
 		JScrollPane scrollPane = new JScrollPane( textArea );
 		add( scrollPane, BorderLayout.NORTH );
