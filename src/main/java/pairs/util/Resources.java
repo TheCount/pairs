@@ -47,7 +47,7 @@ public class Resources implements ResourceConstants {
 		}
 		InputStream in = ClassLoader.getSystemResourceAsStream( resourceName );
 		if ( in == null ) {
-			throw new MissingResourceException( _( "error-loadingresouce", resourceName ), ClassLoader.class.getName(), resourceName );
+			throw new MissingResourceException( _( "error-loadingresource", resourceName ), ClassLoader.class.getName(), resourceName );
 		}
 		InputStreamReader inr = new InputStreamReader( in, ENCODING );
 		char buf[] = new char[4096];
