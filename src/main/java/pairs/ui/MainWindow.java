@@ -73,6 +73,11 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 	private static final String PREF_STATE = "mainWindowState";
 
 	/**
+	 * Status bar.
+	 */
+	private final StatusBar statusBar;
+
+	/**
 	 * Displays main window.
 	 */
 	public MainWindow() {
@@ -106,6 +111,11 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 		menuBar.add( fileMenu );
 		menuBar.add( helpMenu );
 		setJMenuBar( menuBar );
+
+		/* Layout */
+		setLayout( new BorderLayout() );
+		statusBar = new StatusBar();
+		add( statusBar, BorderLayout.SOUTH );
 
 		/* Window sizing */
 		addComponentListener( this );
