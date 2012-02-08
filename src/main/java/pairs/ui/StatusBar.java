@@ -95,7 +95,7 @@ class StatusBar extends JPanel {
 	 */
 	void setTime( int seconds ) {
 		if ( seconds < 0 ) {
-			String errmsg = _( "error-seconds", seconds ); // FIXME: define errmsg
+			String errmsg = _( "error-seconds", seconds );
 			logger.error( errmsg );
 			throw new IllegalArgumentException( errmsg );
 		}
