@@ -29,7 +29,7 @@
 		"licence": "LGPL2.1"
 	},
 	"jackson": {
-		"copyright": "Uses Jackson JSON processor version 1.9.4\nCopyright © 2003-2012  Tatu Saloranta, Ryan Heaton et al.",
+		"copyright": "Jackson JSON processor version 1.9.4\nCopyright © 2003-2012  Tatu Saloranta, Ryan Heaton et al.",
 		"licence": "Apache2.0"
 	},
 	"log4j": {
