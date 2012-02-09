@@ -91,7 +91,7 @@ public class Licence {
 	 *
 	 * @return The name of the licence is returned.
 	 */
-	public String getLicenceName() {
+	public String getName() {
 		return licenceName;
 	}
 
@@ -102,7 +102,7 @@ public class Licence {
 	 *
 	 * @throws IOException if the licence text cannot be loaded.
 	 */
-	public String getLicenceText() throws IOException {
+	public String getText() throws IOException {
 		if ( licenceText == null ) {
 			licenceText = Resources.loadResourceAsString( licenceTextName ).intern();
 		}
