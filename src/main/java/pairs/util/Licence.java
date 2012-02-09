@@ -99,12 +99,14 @@ public class Licence {
 	 * Returns the licence text.
 	 *
 	 * @return The licence text is returned.
-	 *
-	 * @throws IOException if the licence text cannot be loaded.
 	 */
-	public String getText() throws IOException {
-		if ( licenceText == null ) {
-			licenceText = Resources.loadResourceAsString( licenceTextName ).intern();
+	public String getText() {
+		try {
+			if ( licenceText == null ) {
+				licenceText = Resources.loadResourceAsString( licenceTextName ).intern();
+			}
+		} catch ( IOException e ) {
+			throw new RuntimeException( e );
 		}
 		return licenceText;
 	}
