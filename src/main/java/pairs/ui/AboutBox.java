@@ -25,6 +25,9 @@ import javax.swing.*;
 
 import org.apache.log4j.Logger;
 
+import pairs.util.Copyright;
+import pairs.util.Licence;
+
 import static pairs.util.Message._;
 
 /**
@@ -44,12 +47,12 @@ class AboutBox extends JDialog {
 	/**
 	 * Creates a text area with some default properties.
 	 *
-	 * @param textKey Text key of displayed text.
+	 * @param text Text to be displayed.
 	 *
 	 * @return A suitable text area is returned.
 	 */
-	private static JTextArea makeTextArea( String textKey ) {
-		JTextArea textArea = new JTextArea( _( textKey ), 0, DEFAULT_COLS );
+	private static JTextArea makeTextArea( String text ) {
+		JTextArea textArea = new JTextArea( text, 0, DEFAULT_COLS );
 		textArea.setEditable( false );
 		textArea.setLineWrap( true );
 		textArea.setWrapStyleWord( true );
@@ -72,19 +75,18 @@ class AboutBox extends JDialog {
 		/**
 		 * Adds copyright info.
 		 *
-		 * @param infoKey Key to the info text key.
-		 * @param licenceKey Key to the licence name.
-		 * @param licenceResourceName Licence resource name.
+		 * @param copyright Copyright to provide info for.
 		 * @param row Row in which the copyright info is to be placed.
 		 */
-		private void addCopyrightInfo( final String infoKey, final String licenceKey, final String licenceResourceName, final int row ) {
+		private void addCopyrightInfo( final Copyright copyright, final int row ) {
+			final Licence licence = copyright.getLicence();
 			GridBagConstraints c;
 		       
 			c = new GridBagConstraints();
 			c.gridx = 0;
 			c.gridy = row;
 			c.insets = defaultInsets();
-			add( makeTextArea( infoKey ), c );
+			add( makeTextArea( copyright.getText() ), c );
 
 			c = new GridBagConstraints();
 			c.gridx = 1;
@@ -92,7 +94,7 @@ class AboutBox extends JDialog {
 			c.insets = defaultInsets();
 			add( new JButton( new ButtonAction( "button-showlicence" ) {
 				public void actionPerformed( ActionEvent e ) {
-					new TextDisplayBox( AboutBox.this, licenceKey, licenceResourceName );
+					new TextDisplayBox( AboutBox.this, licence.getName(), licence.getText() );
 				}
 			} ), c );
 		}
@@ -104,20 +106,44 @@ class AboutBox extends JDialog {
 			setLayout( new GridBagLayout() );
 			GridBagConstraints c;
 
+			/* Main copyright notice */
 			c = new GridBagConstraints();
 			c.gridx = 0;
 			c.gridy = 0;
 			c.gridwidth = 2;
 			c.fill = GridBagConstraints.HORIZONTAL;
 			c.insets = defaultInsets();
-			add( makeTextArea( "about-heading" ), c );
+			add( makeTextArea( _( "about-heading" ) ), c );
 
-			addCopyrightInfo( "about-warranty", "label-gpl3", "licences/GPL-3", 1 );
-			addCopyrightInfo( "about-log4j", "label-apachelicence", "licences/Apache-2.0", 2 );
-			addCopyrightInfo( "about-batik", "label-apachelicence", "licences/Apache-2.0", 3 );
-			addCopyrightInfo( "about-xerces", "label-apachelicence", "licences/Apache-2.0", 4 );
-			addCopyrightInfo( "about-jackson", "label-apachelicence", "licences/Apache-2.0", 5 );
-			addCopyrightInfo( "about-crystal", "label-lgpl2.1", "licences/LGPL-2.1", 6 );
+			/* GPL button */
+			final Licence gpl = Licence.get( "GPL3" );
+			c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 1;
+			c.gridwidth = 2;
+			c.anchor = GridBagConstraints.EAST;
+			c.insets = defaultInsets();
+			add( new JButton( new AbstractAction( gpl.getName() ) {
+				public void actionPerformed( ActionEvent e ) {
+					new TextDisplayBox( AboutBox.this, gpl.getName(), gpl.getText() );
+				}
+			} ), c );
+
+			/* Components label */
+			c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 2;
+			c.gridwidth = 2;
+			c.anchor = GridBagConstraints.CENTER;
+			c.insets = new Insets( 10, 5, 5, 5 );
+			add( new JLabel( _( "about-components" ) ), c );
+
+			/* Components copyrights */
+			addCopyrightInfo( Copyright.get( "log4j" ), 3 );
+			addCopyrightInfo( Copyright.get( "batik" ), 4 );
+			addCopyrightInfo( Copyright.get( "xerces" ), 5 );
+			addCopyrightInfo( Copyright.get( "jackson" ), 6 );
+			addCopyrightInfo( Copyright.get( "crystal" ), 7 );
 		}
 
 		public Dimension getPreferredScrollableViewportSize() {

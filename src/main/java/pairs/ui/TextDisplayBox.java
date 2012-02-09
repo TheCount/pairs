@@ -42,26 +42,14 @@ class TextDisplayBox extends JDialog {
 	 * Creates a new text display box.
 	 *
 	 * @param owner Owner of the display box.
-	 * @param titleKey Title key for the dialog title.
-	 * @param resourceName Resource name for the text to be displayed.
+	 * @param title Dialog title.
+	 * @param text Text to be displayed.
 	 */
-	TextDisplayBox( Dialog owner, String titleKey, String resourceName ) {
-		super( owner, _( titleKey ) );
+	TextDisplayBox( Dialog owner, String title, String text ) {
+		super( owner, title );
 
 		/* Dispose on close */
 		setDefaultCloseOperation( DISPOSE_ON_CLOSE );
-
-		/* Load resource */
-		String text;
-		try {
-			text = Resources.loadResourceAsString( resourceName );
-		} catch ( Exception e ) {
-			String errorMsg = _( "error-loadingtext", resourceName );
-			logger.error( errorMsg, e );
-			JOptionPane.showMessageDialog( this, errorMsg, _( "error" ), JOptionPane.ERROR_MESSAGE );
-			dispose();
-			return;
-		}
 
 		/* Layout */
 		setLayout( new BorderLayout() );
@@ -80,4 +68,4 @@ class TextDisplayBox extends JDialog {
 		setLocationRelativeTo( null );
 		setVisible( true );
 	}
-}	
+}
