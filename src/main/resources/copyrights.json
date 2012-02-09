@@ -1,0 +1,43 @@
+/*
+    Pairs, a concentration game with modular card packages.
+    Copyright © 2012  Alexander Klauer
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/**
+ * Copyrights database.
+ */
+{
+	"batik": {
+		"copyright": "Apache batik version 1.6-1\nCopyright © 2000-2009  Apache Software Foundation",
+		"licence": "Apache2.0"
+	},
+	"crystal": {
+		"copyright": "Crystal Interaction Design Project\nCopyright © 2001  Everaldo",
+		"licence": "LGPL2.1"
+	},
+	"jackson": {
+		"copyright": "Uses Jackson JSON processor version 1.9.4\nCopyright © 2003-2012  Tatu Saloranta, Ryan Heaton et al.",
+		"licence": "Apache2.0"
+	},
+	"log4j": {
+		"copyright": "Apache log4j version 1.2\nCopyright © 1999-2010  Apache Software Foundation",
+		"licence": "Apache2.0"
+	},
+	"xerces": {
+		"copyright": "Apache xerces version 2.10.0\nCopyright © 1999-2011  Apache Software Foundation",
+		"licence": "Apache2.0"
+	}
+}
