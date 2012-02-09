@@ -31,54 +31,32 @@ abstract class AbstractImageResource implements ImageResource {
 	private final Type type;
 
 	/**
-	 * Copyright text.
+	 * Copyright.
 	 */
-	private final String copyrightText;
-
-	/**
-	 * Licence name.
-	 */
-	private final String licenceName;
-
-	/**
-	 * Licence text.
-	 */
-	private final String licenceText;
+	private final Copyright copyright;
 
 	/**
 	 * Creates a new abstract image resource.
 	 *
-	 * @param typeName Image resource type name.
-	 * @param copyrightText Copyright text.
-	 * @param licenceName Name of the licence this image resource is under.
-	 * @param licenceText Licence text.
+	 * @param type Image resource type.
+	 * @param copyright Image resource copyright.
 	 *
 	 * @throws NullPointerException if one of the arguments is null.
 	 */
-	protected AbstractImageResource( Type type, String copyrightText, String licenceName, String licenceText ) {
-		if ( type == null ) {
+	protected AbstractImageResource( Type type, Copyright copyright ) {
+		if ( ( type == null ) || ( copyright == null ) ) {
 			throw new NullPointerException();
 		}
 		this.type = type;
-		this.copyrightText = copyrightText.intern();
-		this.licenceName = licenceName.intern();
-		this.licenceText = licenceText.intern();
+		this.copyright = copyright;
 	}
 
 	public Type getType() {
 		return type;
 	}
 
-	public String getCopyrightText() {
-		return copyrightText;
-	}
-
-	public String getLicenceName() {
-		return licenceName;
-	}
-
-	public String getLicenceText() {
-		return licenceText;
+	public Copyright getCopyright() {
+		return copyright;
 	}
 
 	public abstract Image createImage( int width, int height, RenderingHints renderingHints );

@@ -46,7 +46,7 @@ public class ImageResourceLoader {
 	/**
 	 * Image database.
 	 */
-	private static final JsonNode imageDatabase;
+	private static final JsonNode database;
 
 	/**
 	 * Initialises the image database.
@@ -55,8 +55,9 @@ public class ImageResourceLoader {
 		try {
 			ObjectMapper om = new ObjectMapper();
 			om.configure( JsonParser.Feature.ALLOW_COMMENTS, true );
+
 			String jsonText = Resources.loadResourceAsString( DATABASE_NAME ); // workaround for bug #779, see http://jira.codehaus.org/browse/JACKSON-779
-			imageDatabase = om.readTree( jsonText );
+			database = om.readTree( jsonText );
 		} catch ( IOException e ) {
 			throw new ExceptionInInitializerError( e );
 		}
@@ -74,27 +75,16 @@ public class ImageResourceLoader {
 	public static ImageResource load( String imageName ) {
 		ImageResource result;
 		try {
-			JsonNode imagesNode = imageDatabase.get( "images" );
-			JsonNode copyrightsNode = imageDatabase.get( "copyrights" );
-			JsonNode licencesNode = imageDatabase.get( "licences" );
-
-			JsonNode imageNode = imagesNode.get( imageName );
+			JsonNode imageNode = database.get( imageName );
 			String typeName = imageNode.get( "type" ).getTextValue();
 			ImageResource.Type type = Enum.valueOf( ImageResource.Type.class, typeName );
 
-			String copyrightNodeName = imageNode.get( "copyright" ).getTextValue();
-			JsonNode copyrightNode = copyrightsNode.get( copyrightNodeName );
-			String copyrightText = copyrightNode.get( "copyright" ).getTextValue();
-
-			String licenceNodeName = copyrightNode.get( "licence" ).getTextValue();
-			JsonNode licenceNode = licencesNode.get( licenceNodeName );
-			String licenceName = licenceNode.get( "name" ).getTextValue();
-
-			String licenceText = Resources.loadResourceAsString( licenceNode.get( "resource" ).getTextValue() );
+			String copyrightName = imageNode.get( "copyright" ).getTextValue();
+			Copyright copyright = Copyright.get( copyrightName );
 
 			switch ( type ) {
 				case SVG:
-					result = new SVGResource( imageNode.get( "resource" ).getTextValue(), copyrightText, licenceName, licenceText );
+					result = new SVGResource( imageNode.get( "resource" ).getTextValue(), copyright );
 					break;
 				default:
 					throw new AssertionError( "This should not happen" );

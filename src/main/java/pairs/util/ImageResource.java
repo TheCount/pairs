@@ -39,25 +39,11 @@ public interface ImageResource {
 	public Type getType();
 
 	/**
-	 * Returns the copyright text for this image resource.
+	 * Returns the copyright.
 	 *
-	 * @return The copyright text for this image resource is returned.
+	 * @return The copyright for this image resource is returned.
 	 */
-	public String getCopyrightText();
-
-	/**
-	 * Returns the licence name for this image resource.
-	 *
-	 * @return The licence name for this image resource is returned.
-	 */
-	public String getLicenceName();
-
-	/**
-	 * Returns the licence text for this image resource.
-	 *
-	 * @return The licence text for this image resource is returned.
-	 */
-	public String getLicenceText();
+	public Copyright getCopyright();
 
 	/**
 	 * Creates a new image from this image resource.

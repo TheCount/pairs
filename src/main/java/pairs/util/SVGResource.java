@@ -64,16 +64,14 @@ class SVGResource extends AbstractImageResource {
 	 * Creates a new SVG resource.
 	 *
 	 * @param resourceName Resource name.
-	 * @param copyrightText Copyright text.
-	 * @param licenceName Licence name.
-	 * @param licenceText Licence text.
+	 * @param copyright Copyright.
 	 *
 	 * @throws MissingResourceException if a resource named resourceName does not exist.
 	 * @throws IOException if an error occurs while reading the resource.
 	 * @throws NullPointerException if one of the arguments is null.
 	 */
-	SVGResource( String resourceName, String copyrightText, String licenceName, String licenceText ) throws IOException {
-		super( Type.SVG, copyrightText, licenceName, licenceText );
+	SVGResource( String resourceName, Copyright copyright ) throws IOException {
+		super( Type.SVG, copyright );
 		URL resourceURL = ClassLoader.getSystemResource( resourceName );
 		if ( resourceURL == null ) {
 			throw new MissingResourceException( _( "error-loadingresource", resourceName ), ClassLoader.class.getName(), resourceName );

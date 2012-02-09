@@ -20,23 +20,9 @@
  * Image database.
  */
 {
-	"licences": {
-		"LGPL2.1": {
-			"name": "GNU Lesser General Public License, version 2.1",
-			"resource": "licences/LGPL-2.1"
-		}
-	},
-	"copyrights": {
-		"crystal": {
-			"copyright": "Crystal Interaction Design Project\nCopyright © 2001  Everaldo",
-			"licence": "LGPL2.1"
-		}
-	},
-	"images": {
-		"program-icon": {
-			"resource": "images/Crystal_icons.svg",
-			"type": "SVG",
-			"copyright": "crystal"
-		}
+	"program-icon": {
+		"resource": "images/Crystal_icons.svg",
+		"type": "SVG",
+		"copyright": "crystal"
 	}
 }
