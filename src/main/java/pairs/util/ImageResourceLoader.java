@@ -20,8 +20,6 @@ package pairs.util;
 
 import java.io.IOException;
 
-import org.apache.log4j.Logger;
-
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParser;
 
@@ -33,11 +31,6 @@ import static pairs.util.Message._;
  * Class for loading image resources.
  */
 public class ImageResourceLoader {
-	/**
-	 * Logger for this class.
-	 */
-	private static final Logger logger = Logger.getLogger( ImageResourceLoader.class );
-
 	/**
 	 * Image database resource name.
 	 */
