@@ -20,9 +20,529 @@
  * Image database.
  */
 {
+	"alligator": {
+		"resource": "images/Héraldique_meuble_Crocodile.svg",
+		"type": "SVG",
+		"copyright": "henrysalome"
+	},
+	"apple": {
+		"resource": "images/Red_apple.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"ant": {
+		"resource": "images/Red_ant.svg",
+		"type": "SVG",
+		"copyright": "bugboy52.40"
+	},
+	"banana": {
+		"resource": "images/Tux_Paint_banana.svg",
+		"type": "SVG",
+		"copyright": "tuxpaint"
+	},
+	"bear": {
+		"resource": "images/Teddybeer.svg",
+		"type": "SVG",
+		"copyright": "olivierbommel"
+	},
+	"bee": {
+		"resource": "images/Meuble_héraldique_Abeille_64.svg",
+		"type": "SVG",
+		"copyright": "brieg"
+	},
+	"bell": {
+		"resource": "images/Nuvola_apps_bell.svg",
+		"type": "SVG",
+		"copyright": "nuvola"
+	},
+	"bridge": {
+		"resource": "images/Pont-type-3-arc.svg",
+		"type": "SVG",
+		"copyright": "roulex45"
+	},
+	"bus": {
+		"resource": "images/thilakarathna_Bus.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"butterfly": {
+		"resource": "images/jilagan_Butterfly_2.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"cake": {
+		"resource": "images/Nuvola_apps_cookie.svg",
+		"type": "SVG",
+		"copyright": "nuvola"
+	},
+	"car": {
+		"resource": "images/Blue_old_car.svg",
+		"type": "SVG",
+		"copyright": "andersersej"
+	},
+	"cat": {
+		"resource": "images/Cat_silhouette.svg",
+		"type": "SVG",
+		"copyright": "booyabazooka"
+	},
+	"cheese": {
+		"resource": "images/nodanero_Cheese.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"cherries": {
+		"resource": "images/TheStructorr_cherries.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"clock": {
+		"resource": "images/Clock1.svg",
+		"type": "SVG",
+		"copyright": "fornax"
+	},
+	"cloud": {
+		"resources": "images/internet-cloud.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"coat": {
+		"resource": "images/Coat_Silhouette.svg",
+		"type": "SVG",
+		"copyright": "onef9day"
+	},
+	"cow": {
+		"resource": "images/rygle_Colour_Cows_4.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"cup": {
+		"resource": "images/tomas_arad_cup_of_coffee.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"dog": {
+		"resource": "images/johnny_automatic_cartoon_dog_1.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"dolphin": {
+		"resource": "images/dolphin_enrique_meza_c_02-mod.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"door": {
+		"resource": "images/rg1024_Door_with_cristal_and_wall.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"ear": {
+		"resource": "images/bionet_human_ear.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"earth": {
+		"resource": "images/johnny_automatic_earth.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"earthworm": {
+		"resource": "images/ver.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"egg": {
+		"resource": "images/dStulle_white_egg.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"elephant": {
+		"resource": "images/lemmling_2D_cartoon_elephant.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"eye": {
+		"resource": "images/secretlondon_Blue_eye.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"feather": {
+		"resource": "images/Chrisdesign_Black_Feather.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"finger": {
+		"resource": "images/ecloud_sideways_finger.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"fire": {
+		"resource": "images/valessiobrito_Fire_June_holiday_s.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"fish": {
+		"resource": "images/Machovka_Happy_fish.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"flower": {
+		"resource": "images/PeterM_Flower.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"fly": {
+		"resource": "images/GreenFly.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"fork": {
+		"resource": "images/fork.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"frog": {
+		"resource": "images/molumen_Green_sitting_frog.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"giraffe": {
+		"resource": "images/Giraffe_color.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"glass": {
+		"resource": "images/Anonymous_Glass_2.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"glove": {
+		"resource": "images/wsnaccad_glove.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"grapes": {
+		"resource": "images/stuuf_grapes.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"hammer": {
+		"resource": "images/rejon_Hammer.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"hand": {
+		"resource": "images/1280180371.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"hat": {
+		"resource": "images/nicubunu_Hat.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"heart": {
+		"resource": "images/tomas_arad_heart.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"horse": {
+		"resource": "images/Anonymous_Architetto_--_Cavallo_15.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"house": {
+		"resource": "images/Gnome-home.svg",
+		"type": "SVG",
+		"copyright": "nuvola"
+	},
+	"key": {
+		"resource": "images/feraliminal_Key_(Gold).svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"knife": {
+		"resource": "images/Anonymous_knife.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"leaf": {
+		"resource": "images/carlitos_Leaf.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"lock": {
+		"resource": "images/nicubunu_Lock.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"man": {
+		"resource": "images/smick_Silhouette_man.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"money": {
+		"resource": "images/n_kamil_Money_-_banknotes_and_coin.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"monkey": {
+		"resource": "images/rg1024_Monkey.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"moon": {
+		"resource": "images/liftarn_Heraldic_crescent.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"mouse": {
+		"resource": "images/lemmling_Simple_cartoon_mouse.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"nail": {
+		"resource": "images/Machovka_Nail.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"needle": {
+		"resource": "images/needle.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"net": {
+		"resource": "images/biswajyotim_net.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"orange": {
+		"resource": "images/orange_slice.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"oven": {
+		"resource": "images/oven.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"paint": {
+		"resource": "images/liftarn_Paint_can_with_brush.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"pen": {
+		"resource": "images/biswajyotim_Pen.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"pencil": {
+		"resource": "images/barretr_Pencil.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"penguin": {
+		"resource": "images/tux.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"pig": {
+		"resource": "images/bloodsong_Pig-RoundCartoon.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"plane": {
+		"resource": "images/klsgfx_Red_Plane.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
 	"program-icon": {
 		"resource": "images/Crystal_icons.svg",
 		"type": "SVG",
 		"copyright": "crystal"
+	},
+	"rabbit": {
+		"resource": "images/rabb.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"rain": {
+		"resource": "images/spite_overcloud_rainfall_1.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"record": {
+		"resource": "images/Gerald_G_45_RPM_Record.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"rooster": {
+		"resource": "images/Rooster_cartoon_04.svg",
+		"type": "SVG",
+		"copyright": "ladyofhats"
+	},
+	"scissors": {
+		"resource": "images/schoolfreeware_Scissors.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"screw": {
+		"resource": "images/Rfc1394_Wood_Screw_-_Blue.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"ship": {
+		"resource": "images/TomK32_Ship_with_smoke.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"shoe": {
+		"resource": "images/Anonymous_Tennis_shoe.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"shovel": {
+		"resource": "images/Summer_2010_ClipArt_2_Shovel.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"snail": {
+		"resource": "images/Machovka_snail.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"snake": {
+		"resource": "images/rygle_Snake_Colour_Outline.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"snow": {
+		"resource": "images/weather-snow.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"socks": {
+		"resource": "images/johnny_automatic_athletic_crew_socks.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"spade": {
+		"resource": "images/johnny_automatic_spade.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"spoon": {
+		"resource": "images/sutrannu_Flatware_Spoon.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"squirrel": {
+		"resource": "images/gingercoons_Squirrel.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"stamp": {
+		"resource": "images/uroesch_Air_Mail_Postage_Stamp.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"star": {
+		"resource": "images/Rocket000_emblem-star.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"stone": {
+		"resource": "images/Angelo_Gemmi_stone.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"strawberry": {
+		"resource": "images/Gerald_G_Simple_Fruit_(FF_Menu)_1.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"sun": {
+		"resource": "images/SUN_01.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"swan": {
+		"resource": "images/TheresaKnott_Swan_swimming.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"table": {
+		"resource": "images/Anonymous_Wooden_Table.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"thumb": {
+		"resource": "images/BigRedSmile_A_Thumb.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"tram": {
+		"resource": "images/Sinnbild_Straßenbahn.svg",
+		"type": "SVG",
+		"copyright": "amtlicheswerk"
+	},
+	"tree": {
+		"resource": "images/PeterM_Tree.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"trousers": {
+		"resource": "images/secretlondon_Jeans.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"umbrella": {
+		"resource": "images/1294463916.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"waste": {
+		"resource": "images/jonata_Organic.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"whale": {
+		"resource": "images/1298061281.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"wheel": {
+		"resource": "images/carlitos_BikeWheel.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"whistle": {
+		"resource": "images/kelan_whistle.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"window": {
+		"resource": "images/pitr_Window_icon.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"woman": {
+		"resource": "images/woman_01.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"wood": {
+		"resource": "images/Farmeral_Wood_Icon.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"wool": {
+		"resource": "images/adam_lowe_Pink_Ball_of_Yarn.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
+	},
+	"zebra": {
+		"resource": "images/ha1flosse_zebra.svg",
+		"type": "SVG",
+		"copyright": "openclipart"
 	}
 }

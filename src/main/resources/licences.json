@@ -20,9 +20,29 @@
  * Licences database.
  */
 {
+	"Amtliches Werk": {
+		"name": "Amtliches Werk",
+		"resources": "licences/AmtlichesWerk.txt"
+	},
 	"Apache2.0": {
 		"name": "Apache License, version 2.0",
 		"resource": "licences/Apache-2.0"
+	},
+	"CC0": {
+		"name": "Creative Commons Public Domain Dedication, version 1.0",
+		"resource": "licences/CC0-1.0"
+	},
+	"CC-BY-3.0": {
+		"name": "Creative Commons Attribution 3.0 Unported",
+		"resource": "licences/CC-BY-3.0"
+	},
+	"GFDL1.2": {
+		"name": "GNU Free Documentation License, version 1.2",
+		"resource": "licences/GFDL-1.2"
+	},
+	"GPL2": {
+		"name": "GNU General Public License, version 2",
+		"resource": "licences/GPL-2"
 	},
 	"GPL3": {
 		"name": "GNU General Public License, version 3",
@@ -31,5 +51,9 @@
 	"LGPL2.1": {
 		"name": "GNU Lesser General Public License, version 2.1",
 		"resource": "licences/LGPL-2.1"
+	},
+	"wmpd": {
+		"name": "Wikimedia public domain statement",
+		"resource": "licences/wmpd.txt"
 	}
 }

@@ -20,21 +20,77 @@
  * Copyrights database.
  */
 {
+	"amtlicheswerk": {
+		"copyright": "German \"Amtliche Werke\"\nPublic domain",
+		"licence": "Amtliches Werk"
+	},
+	"andersersej": {
+		"copyright": "Blue old car by andersersej\nCopyrights waived",
+		"licence": "wmpd"
+	},
 	"batik": {
-		"copyright": "Apache batik version 1.6-1\nCopyright © 2000-2009  Apache Software Foundation",
+		"copyright": "Apache batik version 1.7\nCopyright © 2000-2009  Apache Software Foundation",
 		"licence": "Apache2.0"
+	},
+	"booyabazooka": {
+		"copyright": "Cat silhouette by booyabazooka\nCopyrights waived",
+		"licence": "wmpd"
+	},
+	"brieg": {
+		"copyright": "Abeille meuble héraldique\nCopyright © 2007  Brieg",
+		"licence": "GFDL1.2"
+	},
+	"bugboy52.40": {
+		"copyright": "Red ant\nCopyright © 2009  Bugboy52.40",
+		"licence": "GFDL1.2"
 	},
 	"crystal": {
 		"copyright": "Crystal Interaction Design Project\nCopyright © 2001  Everaldo",
 		"licence": "LGPL2.1"
 	},
+	"fornax": {
+		"copyright": "Vector clock\nCopyright © 2010  Fornax",
+		"licence": "GFDL1.2"
+	},
+	"henrysalome": {
+		"copyright": "Crocodile meuble héraldique\nCopyright © 2012  Henry Salomé",
+		"licence": "GFDL1.2"
+	},
 	"jackson": {
 		"copyright": "Jackson JSON processor version 1.9.4\nCopyright © 2003-2012  Tatu Saloranta, Ryan Heaton et al.",
 		"licence": "Apache2.0"
 	},
+	"ladyofhats": {
+		"copyright": "Rooster by LadyofHats\nCopyrighst waived",
+		"licence": "wmpd"
+	},
 	"log4j": {
 		"copyright": "Apache log4j version 1.2\nCopyright © 1999-2010  Apache Software Foundation",
 		"licence": "Apache2.0"
+	},
+	"nuvola": {
+		"copyright": "Nuvola icon theme\nCopyright © 2004  David Vignoni",
+		"licence": "LGPL2.1"
+	},
+	"openclipart": {
+		"copyright": "Open Clipart Library\nCopyrights waived",
+		"licence": "CC0-1.0"
+	},
+	"olivierbommel": {
+		"copyright": "Teddy bear\nCopyright © 2010  Olivier Bommel",
+		"licence": "GFDL1.2"
+	},
+	"onef9day": {
+		"copyright": "Coat silhouette\nCopyright © 2010  Onef9day",
+		"licence": "CC-BY-3.0"
+	},
+	"roulex45": {
+		"copyright": "Pont en arc\nCopyright © 2008  Roulex45",
+		"licence": "GFDL1.2"
+	},
+	"tuxpaint": {
+		"copyright": "Tux Paint\nCopyright © 2002-2010  Bill Kendrick et al.",
+		"licence": "GPL2"
 	},
 	"xerces": {
 		"copyright": "Apache xerces version 2.10.0\nCopyright © 1999-2011  Apache Software Foundation",
