@@ -1,0 +1,961 @@
+/*
+    Pairs, a concentration game with modular card packages.
+    Copyright © 2012  Alexander Klauer
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/**
+ * Test card package.
+ */
+{
+	"pairs": [
+		[
+			{
+				"type": "IMAGE",
+				"image": "alligator"
+			}, {
+				"type": "TEXT",
+				"value": "alligator"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "apple"
+			},
+			{
+				"type": "TEXT",
+				"value": "apple"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "ant"
+			},
+			{
+				"type": "TEXT",
+				"value": "ant"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "banana"
+			},
+			{
+				"type": "TEXT",
+				"value": "banana"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "bear"
+			},
+			{
+				"type": "TEXT",
+				"value": "bear"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "bee"
+			},
+			{
+				"type": "TEXT",
+				"value": "bee"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "bell"
+			},
+			{
+				"type": "TEXT",
+				"value": "bell"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "bridge"
+			},
+			{
+				"type": "TEXT",
+				"value": "bridge"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "bus"
+			},
+			{
+				"type": "TEXT",
+				"value": "bus"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "butterfly"
+			},
+			{
+				"type": "TEXT",
+				"value": "butterfly"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "cake"
+			},
+			{
+				"type": "TEXT",
+				"value": "cake"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "car"
+			},
+			{
+				"type": "TEXT",
+				"value": "car"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "cat"
+			},
+			{
+				"type": "TEXT",
+				"value": "cat"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "cheese"
+			},
+			{
+				"type": "TEXT",
+				"value": "cheese"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "cherry"
+			},
+			{
+				"type": "TEXT",
+				"value": "cherry"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "clock"
+			},
+			{
+				"type": "TEXT",
+				"value": "clock"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "cloud"
+			},
+			{
+				"type": "TEXT",
+				"value": "cloud"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "coat"
+			},
+			{
+				"type": "TEXT",
+				"value": "coat"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "cow"
+			},
+			{
+				"type": "TEXT",
+				"value": "cow"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "cup"
+			},
+			{
+				"type": "TEXT",
+				"value": "cup"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "dog"
+			},
+			{
+				"type": "TEXT",
+				"value": "dog"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "dolphin"
+			},
+			{
+				"type": "TEXT",
+				"value": "dolphin"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "door"
+			},
+			{
+				"type": "TEXT",
+				"value": "door"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "ear"
+			},
+			{
+				"type": "TEXT",
+				"value": "ear"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "earth"
+			},
+			{
+				"type": "TEXT",
+				"value": "earth"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "earthworm"
+			},
+			{
+				"type": "TEXT",
+				"value": "earthworm"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "egg"
+			},
+			{
+				"type": "TEXT",
+				"value": "egg"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "elephant"
+			},
+			{
+				"type": "TEXT",
+				"value": "elephant"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "eye"
+			},
+			{
+				"type": "TEXT",
+				"value": "eye"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "feather"
+			},
+			{
+				"type": "TEXT",
+				"value": "feather"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "finger"
+			},
+			{
+				"type": "TEXT",
+				"value": "finger"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "fire"
+			},
+			{
+				"type": "TEXT",
+				"value": "fire"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "fish"
+			},
+			{
+				"type": "TEXT",
+				"value": "fish"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "flower"
+			},
+			{
+				"type": "TEXT",
+				"value": "flower"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "fly"
+			},
+			{
+				"type": "TEXT",
+				"value": "fly"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "fork"
+			},
+			{
+				"type": "TEXT",
+				"value": "fork"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "frog"
+			},
+			{
+				"type": "TEXT",
+				"value": "frog"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "giraffe"
+			},
+			{
+				"type": "TEXT",
+				"value": "giraffe"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "glass"
+			},
+			{
+				"type": "TEXT",
+				"value": "glass"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "glove"
+			},
+			{
+				"type": "TEXT",
+				"value": "glove"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "grapes"
+			},
+			{
+				"type": "TEXT",
+				"value": "grapes"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "hammer"
+			},
+			{
+				"type": "TEXT",
+				"value": "hammer"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "hand"
+			},
+			{
+				"type": "TEXT",
+				"value": "hand"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "hat"
+			},
+			{
+				"type": "TEXT",
+				"value": "hat"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "heart"
+			},
+			{
+				"type": "TEXT",
+				"value": "heart"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "horse"
+			},
+			{
+				"type": "TEXT",
+				"value": "horse"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "house"
+			},
+			{
+				"type": "TEXT",
+				"value": "house"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "key"
+			},
+			{
+				"type": "TEXT",
+				"value": "key"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "knife"
+			},
+			{
+				"type": "TEXT",
+				"value": "knife"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "leaf"
+			},
+			{
+				"type": "TEXT",
+				"value": "leaf"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "lock"
+			},
+			{
+				"type": "TEXT",
+				"value": "lock"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "man"
+			},
+			{
+				"type": "TEXT",
+				"value": "man"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "money"
+			},
+			{
+				"type": "TEXT",
+				"value": "money"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "monkey"
+			},
+			{
+				"type": "TEXT",
+				"value": "monkey"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "moon"
+			},
+			{
+				"type": "TEXT",
+				"value": "moon"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "mouse"
+			},
+			{
+				"type": "TEXT",
+				"value": "mouse"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "nail"
+			},
+			{
+				"type": "TEXT",
+				"value": "nail"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "needle"
+			},
+			{
+				"type": "TEXT",
+				"value": "needle"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "net"
+			},
+			{
+				"type": "TEXT",
+				"value": "net"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "orange"
+			},
+			{
+				"type": "TEXT",
+				"value": "orange"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "oven"
+			},
+			{
+				"type": "TEXT",
+				"value": "oven"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "paint"
+			},
+			{
+				"type": "TEXT",
+				"value": "paint"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "pen"
+			},
+			{
+				"type": "TEXT",
+				"value": "pen"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "pencil"
+			},
+			{
+				"type": "TEXT",
+				"value": "pencil"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "penguin"
+			},
+			{
+				"type": "TEXT",
+				"value": "penguin"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "pig"
+			},
+			{
+				"type": "TEXT",
+				"value": "pig"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "plane"
+			},
+			{
+				"type": "TEXT",
+				"value": "plane"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "rabbit"
+			},
+			{
+				"type": "TEXT",
+				"value": "rabbit"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "rain"
+			},
+			{
+				"type": "TEXT",
+				"value": "rain"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "record"
+			},
+			{
+				"type": "TEXT",
+				"value": "record"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "rooster"
+			},
+			{
+				"type": "TEXT",
+				"value": "rooster"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "scissors"
+			},
+			{
+				"type": "TEXT",
+				"value": "scissors"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "screw"
+			},
+			{
+				"type": "TEXT",
+				"value": "screw"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "ship"
+			},
+			{
+				"type": "TEXT",
+				"value": "ship"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "shoe"
+			},
+			{
+				"type": "TEXT",
+				"value": "shoe"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "shovel"
+			},
+			{
+				"type": "TEXT",
+				"value": "shovel"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "snail"
+			},
+			{
+				"type": "TEXT",
+				"value": "snail"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "snake"
+			},
+			{
+				"type": "TEXT",
+				"value": "snake"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "snow"
+			},
+			{
+				"type": "TEXT",
+				"value": "snow"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "sock"
+			},
+			{
+				"type": "TEXT",
+				"value": "sock"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "spade"
+			},
+			{
+				"type": "TEXT",
+				"value": "spade"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "spoon"
+			},
+			{
+				"type": "TEXT",
+				"value": "spoon"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "squirrel"
+			},
+			{
+				"type": "TEXT",
+				"value": "squirrel"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "stamp"
+			},
+			{
+				"type": "TEXT",
+				"value": "stamp"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "star"
+			},
+			{
+				"type": "TEXT",
+				"value": "star"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "stone"
+			},
+			{
+				"type": "TEXT",
+				"value": "stone"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "strawberry"
+			},
+			{
+				"type": "TEXT",
+				"value": "strawberry"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "sun"
+			},
+			{
+				"type": "TEXT",
+				"value": "sun"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "swan"
+			},
+			{
+				"type": "TEXT",
+				"value": "swan"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "table"
+			},
+			{
+				"type": "TEXT",
+				"value": "table"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "thumb"
+			},
+			{
+				"type": "TEXT",
+				"value": "thumb"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "tram"
+			},
+			{
+				"type": "TEXT",
+				"value": "tram"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "tree"
+			},
+			{
+				"type": "TEXT",
+				"value": "tree"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "trousers"
+			},
+			{
+				"type": "TEXT",
+				"value": "trousers"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "umbrella"
+			},
+			{
+				"type": "TEXT",
+				"value": "umbrella"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "waste"
+			},
+			{
+				"type": "TEXT",
+				"value": "waste"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "whale"
+			},
+			{
+				"type": "TEXT",
+				"value": "whale"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "wheel"
+			},
+			{
+				"type": "TEXT",
+				"value": "wheel"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "whistle"
+			},
+			{
+				"type": "TEXT",
+				"value": "whistle"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "window"
+			},
+			{
+				"type": "TEXT",
+				"value": "window"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "woman"
+			},
+			{
+				"type": "TEXT",
+				"value": "woman"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "wood"
+			},
+			{
+				"type": "TEXT",
+				"value": "wood"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "wool"
+			},
+			{
+				"type": "TEXT",
+				"value": "wool"
+			}
+		], [
+			{
+				"type": "IMAGE",
+				"image": "zebra"
+			},
+			{
+				"type": "TEXT",
+				"value": "zebra"
+			}
+		]
+	]
+}
