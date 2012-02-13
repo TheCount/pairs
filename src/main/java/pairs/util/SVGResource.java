@@ -61,6 +61,11 @@ class SVGResource extends AbstractImageResource {
 	private final GraphicsNode rootGraphicsNode;
 
 	/**
+	 * Bridge context.
+	 */
+	private final BridgeContext bridgeContext;
+
+	/**
 	 * Creates a new SVG resource.
 	 *
 	 * @param resourceName Resource name.
@@ -79,7 +84,8 @@ class SVGResource extends AbstractImageResource {
 		String parserClassName = XMLResourceDescriptor.getXMLParserClassName();
 		SAXSVGDocumentFactory documentFactory = new SAXSVGDocumentFactory( parserClassName );
 		this.svgDocument = (SVGDocument) documentFactory.createDocument( resourceURL.toString() );
-		this.rootGraphicsNode = new GVTBuilder().build( new BridgeContext( new UserAgentAdapter() ), this.svgDocument );
+		this.bridgeContext = new BridgeContext( new UserAgentAdapter() );
+		this.rootGraphicsNode = new GVTBuilder().build( bridgeContext, this.svgDocument );
 	}
 
 	/**
@@ -97,7 +103,7 @@ class SVGResource extends AbstractImageResource {
 		graphics.addRenderingHints( renderingHints );
 
 		/* Render SVG to graphics */
-		graphics.transform( ViewBox.getViewTransform( null, svgDocument.getRootElement(), width, height ) );
+		graphics.transform( ViewBox.getViewTransform( null, svgDocument.getRootElement(), width, height, bridgeContext ) );
 		rootGraphicsNode.paint( graphics );
 
 		/* return newly painted image */

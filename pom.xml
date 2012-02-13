@@ -68,8 +68,8 @@
 							org.apache.log4j.*,
 							org.apache.xerces.*,
 							org.codehaus.jackson.*;-split-package:=merge-first,
-							org.w3c.css.sac;-split-package:=merge-first,
-							org.w3c.dom.svg;-split-package:=merge-first,
+							org.w3c.css.sac.*;-split-package:=merge-first,
+							org.w3c.dom.*;-split-package:=merge-first,
 						</Private-Package>
 						<Main-Class>pairs.Main</Main-Class>
 					</instructions>
@@ -80,9 +80,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>batik</groupId>
+			<groupId>org.apache.xmlgraphics</groupId>
 			<artifactId>batik-rasterizer</artifactId>
-			<version>1.6-1</version>
+			<version>1.7</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
