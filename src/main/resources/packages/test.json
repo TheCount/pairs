@@ -20,6 +20,7 @@
  * Test card package.
  */
 {
+	"descriptionKey": "package-test-description",
 	"pairs": [
 		[
 			{

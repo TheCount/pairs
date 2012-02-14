@@ -21,6 +21,8 @@ package pairs.data;
 import java.io.IOException;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Vector;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParser;
@@ -73,6 +75,11 @@ public class CardPackage {
 	private final String name;
 
 	/**
+	 * Package description.
+	 */
+	private final String description;
+
+	/**
 	 * Card pairs.
 	 */
 	private final CardPair[] cardPairs;
@@ -81,15 +88,17 @@ public class CardPackage {
 	 * Creates a new card package.
 	 *
 	 * @param name Card package name.
+	 * @param description Package description.
 	 * @param cardPairs Array of card pairs.
 	 *
 	 * @throws NullPointerException if one of the arguments is null.
 	 */
-	protected CardPackage( String name, CardPair[] cardPairs ) {
+	protected CardPackage( String name, String description, CardPair[] cardPairs ) {
 		if ( ( name == null ) || ( cardPairs == null ) ) {
 			throw new NullPointerException();
 		}
 		this.name = name;
+		this.description = description;
 		this.cardPairs = cardPairs;
 	}
 
@@ -100,6 +109,15 @@ public class CardPackage {
 	 */
 	public String getName() {
 		return name;
+	}
+
+	/**
+	 * Gets the description of this package.
+	 *
+	 * @return The description of this package is returned.
+	 */
+	public String getDescription() {
+		return description;
 	}
 
 	/**
@@ -128,6 +146,10 @@ public class CardPackage {
 		return Arrays.copyOf( cardPairs, n );
 	}
 
+	public @Override String toString() {
+		return getName();
+	}
+
 	/**
 	 * Obtains the named card package.
 	 *
@@ -144,7 +166,9 @@ public class CardPackage {
 			String packageResourceName = packageNode.get( "resource" ).getTextValue();
 
 			String jsonText = Resources.loadResourceAsString( packageResourceName );
-			JsonNode pairs = objectMapper.readTree( jsonText ).get( "pairs" );
+			JsonNode packageResource = objectMapper.readTree( jsonText );
+			String packageDescriptionKey = packageResource.get( "descriptionKey" ).getTextValue();
+			JsonNode pairs = packageResource.get( "pairs" );
 
 			int size = pairs.size();
 			CardPair[] cardPairs = new CardPair[ size ];
@@ -165,9 +189,23 @@ public class CardPackage {
 				}
 				cardPairs[ i ] = new CardPair( cardPair[ 0 ], cardPair[ 1 ] );
 			}
-			return new CardPackage( _( packageKey ), cardPairs );
+			return new CardPackage( _( packageKey ), _( packageDescriptionKey ), cardPairs );
 		} catch ( Exception e ) {
 			throw new IllegalArgumentException( _( "error-cardpackage", name ), e );
 		}
+	}
+
+	/**
+	 * Obtains all card packages.
+	 *
+	 * @return An array containing all card packages is returned.
+	 */
+	public static Vector<CardPackage> getAll() {
+		Vector<CardPackage> result = new Vector();
+		Iterator<String> fieldNameIterator = database.getFieldNames();
+		while ( fieldNameIterator.hasNext() ) {
+			result.add( get( fieldNameIterator.next() ) );
+		}
+		return result;
 	}
 }
