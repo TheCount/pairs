@@ -80,4 +80,26 @@ public class Card {
 	public Type getType() {
 		return type;
 	}
+
+	/**
+	 * Returns the image resource for this card.
+	 *
+	 * @return The image resource for this card is returned.
+	 *
+	 * @throws ClassCastException if this is a text card.
+	 */
+	public ImageResource getImageResource() {
+		return (ImageResource) content;
+	}
+
+	/**
+	 * Returns the text for this card.
+	 *
+	 * @return The text for this card is returned.
+	 *
+	 * @throws ClassCastException if this is an image card.
+	 */
+	public String getText() {
+		return (String) content;
+	}
 }

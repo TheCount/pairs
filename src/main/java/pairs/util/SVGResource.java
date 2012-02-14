@@ -103,7 +103,11 @@ class SVGResource extends AbstractImageResource {
 		graphics.addRenderingHints( renderingHints );
 
 		/* Render SVG to graphics */
-		graphics.transform( ViewBox.getViewTransform( null, svgDocument.getRootElement(), width, height, bridgeContext ) );
+		Rectangle bounds = rootGraphicsNode.getSensitiveBounds().getBounds();
+		float scaleW = (float) width / bounds.width;
+		float scaleH = (float) height / bounds.height;
+		float scale = scaleW < scaleH ? scaleW : scaleH;
+		graphics.scale( scale, scale );
 		rootGraphicsNode.paint( graphics );
 
 		/* return newly painted image */

@@ -20,6 +20,8 @@ package pairs.model;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -30,6 +32,8 @@ import pairs.data.CardPair;
 
 import pairs.util.Random;
 import pairs.util.UnorderedPair;
+
+import static pairs.model.PlayfieldChangeListener.*;
 
 import static pairs.util.Message._;
 
@@ -96,10 +100,14 @@ public class PlayfieldModel {
 	private final Card[] cards;
 
 	/**
-	 * Position of the card currently picked, or -1 if none.
+	 * Index of the card currently picked, or -1 if none.
 	 */
-	private int pickedCardX;
-	private int pickedCardY;
+	private int pickedCardIndex;
+
+	/**
+	 * Array indicating which cards are currently shown.
+	 */
+	private final boolean[] cardsShown;
 
 	/**
 	 * Array indicating whether the respective card has already been won.
@@ -115,6 +123,11 @@ public class PlayfieldModel {
 	 * Number of failed picks.
 	 */
 	private int failedPicks;
+
+	/**
+	 * Listener list.
+	 */
+	private final List<PlayfieldChangeListener> listenerList;
 
 	/**
 	 * Creates a new random playfield model.
@@ -146,7 +159,7 @@ public class PlayfieldModel {
 		CardPair[] cardPairs = cardPackage.createRandomSample( this.size / 2 );
 		this.cards = new Card[ this.size ];
 		int index = 0;
-		for( final CardPair cardPair: cardPairs ) {
+		for ( final CardPair cardPair: cardPairs ) {
 			this.cards[ index++ ] = cardPair.getFirst();
 			this.cards[ index++ ] = cardPair.getSecond();
 		}
@@ -155,16 +168,41 @@ public class PlayfieldModel {
 		if ( 2 * this.cardPairs.size() != this.cards.length ) {
 			throw new AssertionError( "This should not happen" );
 		}
-		this.pickedCardX = -1;
-		this.pickedCardY = -1;
+		this.pickedCardIndex = -1;
+		this.cardsShown = new boolean[ this.size ];
+		for ( int i = 0; i != this.size; ++i ) {
+			this.cardsShown[ i ] = false;
+		}
 
 		/* Game statistics */
 		this.cardsWon = new boolean[ this.size ];
-		for( int i = 0; i != this.size; ++i ) {
+		for ( int i = 0; i != this.size; ++i ) {
 			this.cardsWon[ i ] = false;
 		}
 		this.cardPairsLeft = cardPairs.length;
 		this.failedPicks = 0;
+		this.listenerList = new LinkedList();
+	}
+
+	/**
+	 * Adds a listener listening for playfield change events.
+	 *
+	 * @param listener Playfield change listener.
+	 */
+	public void addChangeListener( PlayfieldChangeListener listener ) {
+		listenerList.add( listener );
+	}
+
+	/**
+	 * Informs all listeners of a change.
+	 *
+	 * @param i Index of the card that has changed.
+	 * @param type Change type.
+	 */
+	protected void firePlayfieldChanged( int i, ChangeType type ) {
+		for ( PlayfieldChangeListener listener: listenerList ) {
+			listener.playfieldChanged( this, i, type );
+		}
 	}
 
 	/**
@@ -195,20 +233,16 @@ public class PlayfieldModel {
 	}
 
 	/**
-	 * Gets the card at the specified position.
+	 * Gets the card at the specified index.
 	 *
-	 * @param x X position.
-	 * @param y Y position.
+	 * @param i Index.
 	 *
-	 * @return The card at the specified position is returned.
+	 * @return The card at the specified index is returned.
 	 *
 	 * @throws IndexOutOfBoundsException if x or y is outside the playfield bounds.
 	 */
-	public Card getCard( int x, int y ) {
-		if ( ( x < 0 ) || ( x >= width ) || ( y < 0 ) || ( y >= height ) ) {
-			throw new IndexOutOfBoundsException();
-		}
-		return cards[ y * height + x ];
+	public Card getCard( int i ) {
+		return cards[ i ];
 	}
 
 	/**
@@ -217,64 +251,96 @@ public class PlayfieldModel {
 	 * @return The currently picked card is returned, or null if no card is currently picked.
 	 */
 	public Card getPickedCard() {
-		return getCard( pickedCardX, pickedCardY );
+		if ( pickedCardIndex == -1 ) {
+			return null;
+		} else {
+			return cards[ pickedCardIndex ];
+		}
 	}
 
 	/**
-	 * Picks a card at the specified position.
+	 * Returns the index of the currently picked card.
+	 *
+	 * @return The index of the currently picked card is returned, or -1 if no card is currently picked.
+	 */
+	public int getPickedCardIndex() {
+		return pickedCardIndex;
+	}
+
+	/**
+	 * Picks a card at the specified index.
 	 * If the card is already won, no operation is performed.
 	 * If the card is the currently picked card, no operation is performed.
 	 * If no card is currently picked, the card at the specified position becomes the picked card.
 	 * Otherwise, if the currently picked card and the specified card form a valid pair, they are marked as won.
 	 * Otherwise, no card will be marked as picked, and the number of failed picks is increased by one.
 	 *
-	 * @param x X position.
-	 * @param y Y position.
+	 * @param i Index.
 	 *
-	 * @throws IndexOutOfBoundsException if x or y is outside the playfield bounds.
+	 * @throws IndexOutOfBoundsException if i is out of bounds.
 	 */
-	public void pickCard( int x, int y ) {
-		Card wannaPick = getCard( x, y );
-		if ( cardsWon[ y * height + x ] ) {
+	public void pickCard( int i ) {
+		Card wannaPick = cards[ i ];
+		if ( cardsWon[ i ] ) {
 			return;
 		}
-		if ( pickedCardX == -1 ) {
-			pickedCardX = x;
-			pickedCardY = y;
+		if ( pickedCardIndex == -1 ) {
+			pickedCardIndex = i;
+			cardsShown[ i ] = true;
+			firePlayfieldChanged( i, ChangeType.CARD_SHOWN );
 			return;
 		}
-		Card pickedCard = getCard( pickedCardX, pickedCardY );
-		if ( pickedCard == wannaPick ) {
+		if ( pickedCardIndex == i ) {
 			return;
 		}
+		Card pickedCard = cards[ pickedCardIndex ];
 		CardPair candidate = new CardPair( pickedCard, wannaPick );
 		if ( cardPairs.contains( candidate ) ) {
-			cardsWon[ y * height + x ] = true;
-			cardsWon[ pickedCardY * height + pickedCardX ] = true;
+			cardsWon[ i ] = true;
+			cardsWon[ pickedCardIndex ] = true;
 			--cardPairsLeft;
+			firePlayfieldChanged( i, ChangeType.CARD_REMOVED );
+			firePlayfieldChanged( pickedCardIndex, ChangeType.CARD_REMOVED );
+			if ( cardPairsLeft == 0 ) {
+				firePlayfieldChanged( i, ChangeType.GAME_WON );
+			}
 		} else {
 			++failedPicks;
+			cardsShown[ i ] = false;
+			cardsShown[ pickedCardIndex ] = false;
+			firePlayfieldChanged( i, ChangeType.CARD_HIDDEN );
+			firePlayfieldChanged( pickedCardIndex, ChangeType.CARD_HIDDEN );
 		}
-		pickedCardX = -1;
-		pickedCardY = -1;
+		pickedCardIndex = -1;
+		return;
 	}
 
 	/**
-	 * Returns whether the card at the specified position is won.
+	 * Returns whether the card at the specified index is won.
 	 *
-	 * @param x X position.
-	 * @param y Y position.
+	 * @param i Index.
 	 *
-	 * @return If the card at the specified position is already won, true is returned.
+	 * @return If the card at the specified index is already won, true is returned.
 	 * 	Otherwise, false is returned.
 	 *
-	 * @throws IndexOutOfBoundsException if x or y is outside the playfield bounds.
+	 * @throws IndexOutOfBoundsException if i is out of bounds.
 	 */
-	public boolean isWon( int x, int y ) {
-		if ( ( x < 0 ) || ( x >= width ) || ( y < 0 ) || ( y >= height ) ) {
-			throw new IndexOutOfBoundsException();
-		}
-		return cardsWon[ y * height + x ];
+	public boolean isWon( int i ) {
+		return cardsWon[ i ];
+	}
+
+	/**
+	 * Returns whether the card at the specified index is shown.
+	 *
+	 * @param i Index.
+	 *
+	 * @return If the card at the specified index is currently shown, true is returned.
+	 * 	Otherwise, false is returned.
+	 *
+	 * @throws IndexOutOfBoundsException if i is out of bounds.
+	 */
+	public boolean isShown( int i ) {
+		return cardsShown[ i ];
 	}
 
 	/**

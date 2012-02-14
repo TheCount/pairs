@@ -28,6 +28,8 @@ import javax.swing.*;
 
 import org.apache.log4j.Logger;
 
+import pairs.data.CardPackage;
+
 import pairs.util.ImageResource;
 import pairs.util.ImageResourceLoader;
 
@@ -114,6 +116,7 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 
 		/* Layout */
 		setLayout( new BorderLayout() );
+		add( new Playfield( CardPackage.get( "test" ), 24 ), BorderLayout.CENTER ); // FIXME: testing
 		statusBar = new StatusBar();
 		add( statusBar, BorderLayout.SOUTH );
 
@@ -122,8 +125,10 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 		addWindowStateListener( this );
 		setSize( preferences.getInt( PREF_WIDTH, MIN_WIDTH ), preferences.getInt( PREF_HEIGHT, MIN_HEIGHT ) );
 		setExtendedState( preferences.getInt( PREF_STATE, NORMAL ) );
+		if ( getExtendedState() == NORMAL ) {
+			setLocationRelativeTo( null );
+		}
 		validate();
-		setLocationRelativeTo( null );
 		setVisible( true );
 	}
 
