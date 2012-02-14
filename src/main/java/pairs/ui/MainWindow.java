@@ -80,6 +80,11 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 	private final StatusBar statusBar;
 
 	/**
+	 * Current playfield.
+	 */
+	private Playfield playfield;
+
+	/**
 	 * Displays main window.
 	 */
 	public MainWindow() {
@@ -98,6 +103,12 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 
 		/* Menu */
 		JMenu fileMenu = new JMenu( new MenuAction( "menu-file" ) );
+		fileMenu.add( new MenuItemAction( "menu-newgame" ) {
+			public void actionPerformed( ActionEvent event ) {
+				new NewGame( MainWindow.this );
+			}
+		} );
+		fileMenu.addSeparator();
 		fileMenu.add( new MenuItemAction( "menu-exit" ) {
 			public void actionPerformed( ActionEvent e ) {
 				MainWindow.this.dispose();
@@ -116,7 +127,7 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 
 		/* Layout */
 		setLayout( new BorderLayout() );
-		add( new Playfield( CardPackage.get( "test" ), 24 ), BorderLayout.CENTER ); // FIXME: testing
+		playfield = null;
 		statusBar = new StatusBar();
 		add( statusBar, BorderLayout.SOUTH );
 
@@ -130,6 +141,22 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 		}
 		validate();
 		setVisible( true );
+	}
+
+	/**
+	 * Resets the playfield with the specified arguments.
+	 *
+	 * @param cardPackage Card package to use in new playfield.
+	 * @param sizeHint Suggested playfield size.
+	 */
+	public void resetPlayfield( CardPackage cardPackage, int sizeHint ) {
+		if ( playfield != null ) {
+			remove( playfield );
+			playfield = null;
+		}
+		playfield = new Playfield( cardPackage, sizeHint );
+		add( playfield, BorderLayout.CENTER );
+		validate();
 	}
 
 	public void componentHidden( ComponentEvent e ) {

@@ -49,7 +49,7 @@ public class PlayfieldModel {
 	/**
 	 * Allowed playfield sizes.
 	 */
-	private static final int[] ALLOWED_SIZES = new int[] {
+	private static final Integer[] ALLOWED_SIZES = new Integer[] {
 		2, 4, 6, 8, 10,
 		12, 16, 18, 20, 24,
 		28, 30, 32, 36, 40,
@@ -59,6 +59,15 @@ public class PlayfieldModel {
 		100, 108, 110, 120, 132,
 		144
 	};
+
+	/**
+	 * Returns the allowed playfield sizes.
+	 *
+	 * @return The allowed playfield sizes are returned.
+	 */
+	public static Integer[] getAllowedSizes() {
+		return Arrays.copyOf( ALLOWED_SIZES, ALLOWED_SIZES.length );
+	}
 
 	/**
 	 * Playfield dimensions depending on size.
