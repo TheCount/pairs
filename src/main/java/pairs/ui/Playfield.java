@@ -51,6 +51,11 @@ class Playfield extends JComponent implements PlayfieldChangeListener {
 	private final PlayfieldModel playfieldModel;
 
 	/**
+	 * Owner.
+	 */
+	private final MainWindow owner;
+
+	/**
 	 * Card button.
 	 */
 	private class CardButton extends JButton {
@@ -132,12 +137,15 @@ class Playfield extends JComponent implements PlayfieldChangeListener {
 	/**
 	 * Creates a new playfield component.
 	 *
+	 * @param owner Owner of this playfield.
 	 * @param cardPackage Card package to use.
 	 * @param sizeHint Playfield size hint.
 	 *
 	 * @throws NullPointerException if cardPackage is null.
 	 */
-	Playfield( CardPackage cardPackage, int sizeHint ) {
+	Playfield( MainWindow owner, CardPackage cardPackage, int sizeHint ) {
+		this.owner = owner;
+
 		/* Create model */
 		playfieldModel = new PlayfieldModel( cardPackage, sizeHint );
 
@@ -178,7 +186,7 @@ class Playfield extends JComponent implements PlayfieldChangeListener {
 				cardButtons[ i ].removeCard();
 				break;
 			case GAME_WON:
-				// FIXME: call someone
+				owner.gameWon();
 				break;
 		}
 	}

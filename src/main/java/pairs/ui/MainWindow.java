@@ -85,6 +85,55 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 	private Playfield playfield;
 
 	/**
+	 * Game timer.
+	 */
+	private class GameTimer extends Timer {
+		/**
+		 * Update interval (ms).
+		 */
+		private static final int UPDATE_INTERVAL = 1000;
+
+		/**
+		 * Start time.
+		 */
+		private long startTime;
+
+		/**
+		 * Creates a new game timer.
+		 */
+		GameTimer() {
+			super( UPDATE_INTERVAL, null );
+			addActionListener( new ActionListener() {
+				public void actionPerformed( ActionEvent event ) {
+					statusBar.setTime( (int) ( ( System.currentTimeMillis() - getStartTime() ) / 1000 ) );
+				}
+			} );
+
+		}
+
+		/**
+		 * Gets the start time.
+		 *
+		 * @return The start time is returned.
+		 */
+		private long getStartTime() {
+			return startTime;
+		}
+
+		public @Override void start() {
+			startTime = System.currentTimeMillis();
+			super.start();
+		}
+
+		public @Override void restart() {
+			startTime = System.currentTimeMillis();
+			super.restart();
+		}
+	}
+
+	private final GameTimer gameTimer;
+
+	/**
 	 * Displays main window.
 	 */
 	public MainWindow() {
@@ -131,6 +180,9 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 		statusBar = new StatusBar();
 		add( statusBar, BorderLayout.SOUTH );
 
+		/* Other stuff */
+		gameTimer = new GameTimer();
+
 		/* Window sizing */
 		addComponentListener( this );
 		addWindowStateListener( this );
@@ -150,13 +202,22 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 	 * @param sizeHint Suggested playfield size.
 	 */
 	public void resetPlayfield( CardPackage cardPackage, int sizeHint ) {
+		statusBar.setStatusMessage( "" );
 		if ( playfield != null ) {
 			remove( playfield );
-			playfield = null;
 		}
-		playfield = new Playfield( cardPackage, sizeHint );
+		playfield = new Playfield( this, cardPackage, sizeHint );
 		add( playfield, BorderLayout.CENTER );
 		validate();
+		gameTimer.restart();
+	}
+
+	/**
+	 * Triggered if the game is won.
+	 */
+	public void gameWon() {
+		gameTimer.stop();
+		statusBar.setStatusMessage( _( "label-congrats" ) );
 	}
 
 	public void componentHidden( ComponentEvent e ) {
