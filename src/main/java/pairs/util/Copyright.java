@@ -18,6 +18,9 @@
 
 package pairs.util;
 
+import java.util.Iterator;
+import java.util.Vector;
+
 import org.codehaus.jackson.*;
 import org.codehaus.jackson.map.*;
 
@@ -112,5 +115,19 @@ public class Copyright {
 		}
 		String copyrightText = copyrightNode.get( "copyright" ).getTextValue();
 		return new Copyright( copyrightText, Licence.get( copyrightNode.get( "licence" ).getTextValue() ) );
+	}
+
+	/**
+	 * Get all copyrights.
+	 *
+	 * @return All copyrights are returned.
+	 */
+	public static Vector<Copyright> getAll() {
+		Vector<Copyright> result = new Vector();
+		Iterator<String> copyrightNames = database.getFieldNames();
+		while ( copyrightNames.hasNext() ) {
+			result.add( get( copyrightNames.next() ) );
+		}
+		return result;
 	}
 }

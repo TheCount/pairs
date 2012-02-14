@@ -1,0 +1,14 @@
+This game contains artwork by various authors. Every piece of artwork
+used in this game is either in the public domain, or is released under
+a copyleft licence. However, not all of these licences are compatible
+with the GNU General Public License (see the file COPYING.no-artwork).
+
+To obtain a list of authors and licences, start the game and bring up
+the about box via the Help → About menu, or browse the following files
+directly:
+
+src/pairs/src/main/resources/copyrights.json
+src/pairs/src/main/resources/licences.json
+
+This should it make easy for you to choose the correct licences if you
+intent to make a derivative work based on the game.

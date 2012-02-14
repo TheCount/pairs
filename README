@@ -1,0 +1,21 @@
+Pairs is a concentration-type game where you have to find matching card
+pairs. The game begins with a number of cards turned face down. You then
+may turn two cards of your choice. If they match, they are removed from
+the game. Otherwise, they are turned face down again. You win if you
+manage to remove all cards from the game.
+
+To make this particular instance of concentration more interesting,
+matching pairs do not consist of identical cards. Instead, one card
+may bear an image, while its match may contain text spelling out what
+can be seen on the image.
+
+Building
+========
+
+You need the maven2 project builder and, of course, a java development
+kit. In the source root, execute the following command:
+
+$ mvn package
+
+The jar will then be built in the target subdirectory.
+

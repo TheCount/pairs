@@ -21,6 +21,8 @@ package pairs.ui;
 import java.awt.*;
 import java.awt.event.*;
 
+import java.util.Vector;
+
 import javax.swing.*;
 
 import org.apache.log4j.Logger;
@@ -105,11 +107,12 @@ class AboutBox extends JDialog {
 		CopyrightPane() {
 			setLayout( new GridBagLayout() );
 			GridBagConstraints c;
+			int row = 0;
 
 			/* Main copyright notice */
 			c = new GridBagConstraints();
 			c.gridx = 0;
-			c.gridy = 0;
+			c.gridy = row++;
 			c.gridwidth = 2;
 			c.fill = GridBagConstraints.HORIZONTAL;
 			c.insets = defaultInsets();
@@ -119,7 +122,7 @@ class AboutBox extends JDialog {
 			final Licence gpl = Licence.get( "GPL3" );
 			c = new GridBagConstraints();
 			c.gridx = 0;
-			c.gridy = 1;
+			c.gridy = row++;
 			c.gridwidth = 2;
 			c.anchor = GridBagConstraints.EAST;
 			c.insets = defaultInsets();
@@ -132,18 +135,17 @@ class AboutBox extends JDialog {
 			/* Components label */
 			c = new GridBagConstraints();
 			c.gridx = 0;
-			c.gridy = 2;
+			c.gridy = row++;
 			c.gridwidth = 2;
 			c.anchor = GridBagConstraints.CENTER;
 			c.insets = new Insets( 10, 5, 5, 5 );
 			add( new JLabel( _( "about-components" ) ), c );
 
 			/* Components copyrights */
-			addCopyrightInfo( Copyright.get( "log4j" ), 3 );
-			addCopyrightInfo( Copyright.get( "batik" ), 4 );
-			addCopyrightInfo( Copyright.get( "xerces" ), 5 );
-			addCopyrightInfo( Copyright.get( "jackson" ), 6 );
-			addCopyrightInfo( Copyright.get( "crystal" ), 7 );
+			Vector<Copyright> copyrights = Copyright.getAll();
+			for ( Copyright copyright: copyrights ) {
+				addCopyrightInfo( copyright, row++ );
+			}
 		}
 
 		public Dimension getPreferredScrollableViewportSize() {
