@@ -733,15 +733,10 @@
          style="fill:none;stroke:none"
          id="path2633" />
     </g>
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot2887"
-       transform="matrix(1.25,0,0,-1.25,-1156.2441,929.85131)"><flowRegion
-         id="flowRegion2889"><rect
+    <rect
            id="rect2891"
            width="388.2016"
            height="83.438599"
            x="508.40976"
-           y="185.84276" /></flowRegion><flowPara
-         id="flowPara2893" /></flowRoot>  </g>
+           y="185.84276" />  </g>
 </svg>
