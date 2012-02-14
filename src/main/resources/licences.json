@@ -22,7 +22,7 @@
 {
 	"Amtliches Werk": {
 		"name": "Amtliches Werk",
-		"resources": "licences/AmtlichesWerk.txt"
+		"resource": "licences/AmtlichesWerk.txt"
 	},
 	"Apache2.0": {
 		"name": "Apache License, version 2.0",

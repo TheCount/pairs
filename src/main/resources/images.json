@@ -101,7 +101,7 @@
 		"copyright": "fornax"
 	},
 	"cloud": {
-		"resources": "images/internet-cloud.svg",
+		"resource": "images/internet-cloud.svg",
 		"type": "SVG",
 		"copyright": "openclipart"
 	},

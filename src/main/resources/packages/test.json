@@ -149,11 +149,11 @@
 		], [
 			{
 				"type": "IMAGE",
-				"image": "cherry"
+				"image": "cherries"
 			},
 			{
 				"type": "TEXT",
-				"value": "cherry"
+				"value": "cherries"
 			}
 		], [
 			{
@@ -734,11 +734,11 @@
 		], [
 			{
 				"type": "IMAGE",
-				"image": "sock"
+				"image": "socks"
 			},
 			{
 				"type": "TEXT",
-				"value": "sock"
+				"value": "socks"
 			}
 		], [
 			{
