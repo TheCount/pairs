@@ -27,7 +27,7 @@ import pairs.data.CardPackage;
 
 import pairs.model.PlayfieldModel;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * New game dialog.
@@ -75,7 +75,7 @@ class NewGame extends JDialog {
 	 * @param owner Owner of the NewGame dialog.
 	 */
 	NewGame( MainWindow owner ) {
-		super( owner, _( "label-newgame" ) );
+		super( owner, __( "label-newgame" ) );
 		this.owner = owner;
 
 		setDefaultCloseOperation( DISPOSE_ON_CLOSE );
@@ -88,7 +88,7 @@ class NewGame extends JDialog {
 		c.gridy = 0;
 		c.anchor = GridBagConstraints.EAST;
 		c.insets = DEFAULT_INSETS;
-		JLabel packageLabel = new JLabel( _( "label-package" ) );
+		JLabel packageLabel = new JLabel( __( "label-package" ) );
 		add( packageLabel, c );
 
 		/* Package selector */
@@ -108,7 +108,7 @@ class NewGame extends JDialog {
 		c.gridy = 1;
 		c.anchor = GridBagConstraints.EAST;
 		c.insets = DEFAULT_INSETS;
-		JLabel sizeLabel = new JLabel( _( "label-playfieldsize" ) );
+		JLabel sizeLabel = new JLabel( __( "label-playfieldsize" ) );
 		add( sizeLabel, c );
 
 		/* Playfield size selector */
@@ -117,7 +117,7 @@ class NewGame extends JDialog {
 		c.gridy = 1;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.insets = DEFAULT_INSETS;
-		final SizeSelector sizeSelector = new SizeSelector(); 
+		final SizeSelector sizeSelector = new SizeSelector();
 		sizeLabel.setLabelFor( sizeSelector );
 		add( sizeSelector, c );
 

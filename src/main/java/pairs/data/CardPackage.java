@@ -33,7 +33,7 @@ import pairs.util.ImageResourceLoader;
 import pairs.util.Random;
 import pairs.util.Resources;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * A card package.
@@ -140,7 +140,7 @@ public class CardPackage {
 	 */
 	public CardPair[] createRandomSample( int n ) {
 		if ( ( n < 0 ) || ( n > cardPairs.length ) ) {
-			throw new IllegalArgumentException( _( "error-randomsample", name, cardPairs.length, n ) );
+			throw new IllegalArgumentException( __( "error-randomsample", name, cardPairs.length, n ) );
 		}
 		Random.randomiseArray( cardPairs ); // Yep, always randomise the entire array. The niftier methods might be too much for Java's 48-bit default RNG
 		return Arrays.copyOf( cardPairs, n );
@@ -189,9 +189,9 @@ public class CardPackage {
 				}
 				cardPairs[ i ] = new CardPair( cardPair[ 0 ], cardPair[ 1 ] );
 			}
-			return new CardPackage( _( packageKey ), _( packageDescriptionKey ), cardPairs );
+			return new CardPackage( __( packageKey ), __( packageDescriptionKey ), cardPairs );
 		} catch ( Exception e ) {
-			throw new IllegalArgumentException( _( "error-cardpackage", name ), e );
+			throw new IllegalArgumentException( __( "error-cardpackage", name ), e );
 		}
 	}
 

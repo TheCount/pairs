@@ -35,7 +35,7 @@ import pairs.util.UnorderedPair;
 
 import static pairs.model.PlayfieldChangeListener.*;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * Pairs playfield model.
@@ -158,7 +158,7 @@ public class PlayfieldModel {
 			if ( sizeIndex >= ALLOWED_SIZES.length ) {
 				sizeIndex = ALLOWED_SIZES.length - 1;
 			}
-			logger.warn( _( "warn-playfieldsize", ALLOWED_SIZES[ sizeIndex ], sizeHint ) );
+			logger.warn( __( "warn-playfieldsize", ALLOWED_SIZES[ sizeIndex ], sizeHint ) );
 		}
 		this.size = ALLOWED_SIZES[ sizeIndex ];
 		this.width = PLAYFIELD_DIMENSIONS[ sizeIndex ][ 0 ];

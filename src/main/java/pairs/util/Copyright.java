@@ -24,7 +24,7 @@ import java.util.Vector;
 import org.codehaus.jackson.*;
 import org.codehaus.jackson.map.*;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * Copyright representation.
@@ -111,7 +111,7 @@ public class Copyright {
 	public static Copyright get( String key ) {
 		JsonNode copyrightNode = database.get( key );
 		if ( copyrightNode == null ) {
-			throw new IllegalArgumentException( _( "error-copyright", key ) );
+			throw new IllegalArgumentException( __( "error-copyright", key ) );
 		}
 		String copyrightText = copyrightNode.get( "copyright" ).getTextValue();
 		return new Copyright( copyrightText, Licence.get( copyrightNode.get( "licence" ).getTextValue() ) );

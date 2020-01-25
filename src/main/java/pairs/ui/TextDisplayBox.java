@@ -27,8 +27,6 @@ import org.apache.log4j.Logger;
 
 import pairs.util.Resources;
 
-import static pairs.util.Message._;
-
 /**
  * Box displaying text from a resource.
  */

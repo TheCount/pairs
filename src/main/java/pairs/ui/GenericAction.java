@@ -29,7 +29,7 @@ import org.apache.log4j.Logger;
 
 import pairs.util.Message;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * Generic action.
@@ -57,7 +57,7 @@ abstract class GenericAction extends AbstractAction {
 		try {
 			return KeyEvent.class.getField( "VK_" + key ).getInt( null );
 		} catch ( Exception e ) {
-			throw new IllegalArgumentException( _( "error-parsekey", key ), e );
+			throw new IllegalArgumentException( __( "error-parsekey", key ), e );
 		}
 	}
 
@@ -99,7 +99,7 @@ abstract class GenericAction extends AbstractAction {
 		try {
 			return KeyStroke.getKeyStroke( parseKey( key ), modifiers );
 		} catch ( IllegalArgumentException e ) {
-			throw new IllegalArgumentException( _( "error-parsekeystroke", keyString ), e );
+			throw new IllegalArgumentException( __( "error-parsekeystroke", keyString ), e );
 		}
 	}
 
@@ -113,26 +113,26 @@ abstract class GenericAction extends AbstractAction {
 	 * @param longdescKey Key for long description. Ignored if empty.
 	 */
 	protected GenericAction( String titleKey, String mnemoKey, String accelKey, String shortdescKey, String longdescKey ) {
-		super( _( titleKey ) );
+		super( __( titleKey ) );
 		if ( !Message.isEmpty( mnemoKey ) ) {
 			try {
-				putValue( MNEMONIC_KEY, parseKey( _( mnemoKey ) ) );
+				putValue( MNEMONIC_KEY, parseKey( __( mnemoKey ) ) );
 			} catch ( IllegalArgumentException e ) {
-				logger.error( _( "error-mnemonickey", mnemoKey, _( titleKey ) ), e );
+				logger.error( __( "error-mnemonickey", mnemoKey, __( titleKey ) ), e );
 			}
 		}
 		if ( !Message.isEmpty( accelKey ) ) {
 			try {
-				putValue( ACCELERATOR_KEY, parseKeystroke( _( accelKey ) ) );
+				putValue( ACCELERATOR_KEY, parseKeystroke( __( accelKey ) ) );
 			} catch ( IllegalArgumentException e ) {
-				logger.error( _( "error-accelkey", accelKey, _( titleKey ) ), e );
+				logger.error( __( "error-accelkey", accelKey, __( titleKey ) ), e );
 			}
 		}
 		if ( !Message.isEmpty( shortdescKey ) ) {
-			putValue( SHORT_DESCRIPTION, _( shortdescKey ) );
+			putValue( SHORT_DESCRIPTION, __( shortdescKey ) );
 		}
 		if ( !Message.isEmpty( longdescKey ) ) {
-			putValue( LONG_DESCRIPTION, _( longdescKey ) );
+			putValue( LONG_DESCRIPTION, __( longdescKey ) );
 		}
 	}
 

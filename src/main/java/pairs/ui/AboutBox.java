@@ -30,7 +30,7 @@ import org.apache.log4j.Logger;
 import pairs.util.Copyright;
 import pairs.util.Licence;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * About box.
@@ -83,7 +83,7 @@ class AboutBox extends JDialog {
 		private void addCopyrightInfo( final Copyright copyright, final int row ) {
 			final Licence licence = copyright.getLicence();
 			GridBagConstraints c;
-		       
+
 			c = new GridBagConstraints();
 			c.gridx = 0;
 			c.gridy = row;
@@ -116,7 +116,7 @@ class AboutBox extends JDialog {
 			c.gridwidth = 2;
 			c.fill = GridBagConstraints.HORIZONTAL;
 			c.insets = defaultInsets();
-			add( makeTextArea( _( "about-heading" ) ), c );
+			add( makeTextArea( __( "about-heading" ) ), c );
 
 			/* GPL button */
 			final Licence gpl = Licence.get( "GPL3" );
@@ -139,7 +139,7 @@ class AboutBox extends JDialog {
 			c.gridwidth = 2;
 			c.anchor = GridBagConstraints.CENTER;
 			c.insets = new Insets( 10, 5, 5, 5 );
-			add( new JLabel( _( "about-components" ) ), c );
+			add( new JLabel( __( "about-components" ) ), c );
 
 			/* Components copyrights */
 			Vector<Copyright> copyrights = Copyright.getAll();
@@ -156,7 +156,7 @@ class AboutBox extends JDialog {
 			if ( orientation == VERTICAL ) {
 				return getComponent( 0 ).getPreferredSize().height;
 			} else {
-				logger.warn( _( "warn-hscroll" ) );
+				logger.warn( __( "warn-hscroll" ) );
 				return 100;
 			}
 		}
@@ -173,7 +173,7 @@ class AboutBox extends JDialog {
 			if ( orientation == VERTICAL ) {
 				return getComponent( 0 ).getGraphics().getFontMetrics().getHeight();
 			} else {
-				logger.warn( _( "warn-hscroll" ) );
+				logger.warn( __( "warn-hscroll" ) );
 				return 20;
 			}
 		}
@@ -185,7 +185,7 @@ class AboutBox extends JDialog {
 	 * @param owner Owner of the about box.
 	 */
 	AboutBox( Frame owner ) {
-		super( owner, _( "label-about" ) );
+		super( owner, __( "label-about" ) );
 
 		/* Dispose on close */
 		setDefaultCloseOperation( DISPOSE_ON_CLOSE );

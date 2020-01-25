@@ -25,7 +25,7 @@ import javax.swing.border.*;
 
 import org.apache.log4j.Logger;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * The status bar.
@@ -64,8 +64,8 @@ class StatusBar extends JPanel {
 		message = "";
 		messageLabel = new JLabel( message );
 		seconds = 0;
-		timeLabel = new JLabel( _( "label-time", 0, 0 ) );
-		
+		timeLabel = new JLabel( __( "label-time", 0, 0 ) );
+
 		/* Layout */
 		setBorder( new BevelBorder( BevelBorder.RAISED ) );
 
@@ -95,7 +95,7 @@ class StatusBar extends JPanel {
 	 */
 	void setTime( int seconds ) {
 		if ( seconds < 0 ) {
-			String errmsg = _( "error-seconds", seconds );
+			String errmsg = __( "error-seconds", seconds );
 			logger.error( errmsg );
 			throw new IllegalArgumentException( errmsg );
 		}
@@ -104,7 +104,7 @@ class StatusBar extends JPanel {
 			minutes = 99;
 			seconds = 59;
 		}
-		timeLabel.setText( _( "label-time", minutes, seconds % 60 ) );
+		timeLabel.setText( __( "label-time", minutes, seconds % 60 ) );
 		revalidate();
 	}
 }

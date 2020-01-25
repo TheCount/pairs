@@ -33,7 +33,7 @@ import pairs.data.CardPackage;
 import pairs.util.ImageResource;
 import pairs.util.ImageResourceLoader;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * Main window.
@@ -137,14 +137,14 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 	 * Displays main window.
 	 */
 	public MainWindow() {
-		super( _( "label-concentration" ) );
+		super( __( "label-concentration" ) );
 
 		/* Program icon */
 		try {
 			ImageResource resource = ImageResourceLoader.load( "program-icon" );
 			setIconImage( resource.createImage( 64, 64 ) );
 		} catch ( Exception e ) {
-			logger.error( _( "error-icon" ), e );
+			logger.error( __( "error-icon" ), e );
 		}
 
 		/* Default close operation */
@@ -217,7 +217,7 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 	 */
 	public void gameWon() {
 		gameTimer.stop();
-		statusBar.setStatusMessage( _( "label-congrats" ) );
+		statusBar.setStatusMessage( __( "label-congrats" ) );
 	}
 
 	public void componentHidden( ComponentEvent e ) {

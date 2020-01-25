@@ -123,7 +123,7 @@ public final class Message {
 	 *
 	 * @return The rendered message string is returned.
 	 */
-	public static String _( String key, Object... args ) {
+	public static String __( String key, Object... args ) {
 		return new Message( key, args ).toString();
 	}
 
@@ -134,13 +134,13 @@ public final class Message {
 	 *
 	 * @return The rendered message string is returned.
 	 */
-	public static String _( String key ) {
+	public static String __( String key ) {
 		return new Message( key, null ).toString();
 	}
 
 	/**
 	 * Checks whether a message is empty.
-	 * 
+	 *
 	 * @return Whether the message is empty is returned.
 	 */
 	public static boolean isEmpty( String key ) {

@@ -25,7 +25,7 @@ import org.codehaus.jackson.JsonParser;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * Class for loading image resources.
@@ -83,7 +83,7 @@ public class ImageResourceLoader {
 					throw new AssertionError( "This should not happen" );
 			}
 		} catch ( Exception e ) {
-			throw new IllegalArgumentException( _( "error-loadingimage", imageName ), e );
+			throw new IllegalArgumentException( __( "error-loadingimage", imageName ), e );
 		}
 		return result;
 	}

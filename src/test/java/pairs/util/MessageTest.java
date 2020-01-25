@@ -49,33 +49,33 @@ public class MessageTest {
 	 * Non-existent key test.
 	 */
 	@Test public void nonexistentKeyTest() {
-		assertEquals( "", Message._( "foo" ) );
+		assertEquals( "", Message.__( "foo" ) );
 	}
 
 	/**
 	 * No-param test.
 	 */
 	@Test public void noParamTest() {
-		assertEquals( "Test", Message._( "test0" ) );
-		assertEquals( "Test", Message._( "test0", "foo" ) );
+		assertEquals( "Test", Message.__( "test0" ) );
+		assertEquals( "Test", Message.__( "test0", "foo" ) );
 	}
 
 	/**
 	 * One-param test.
 	 */
 	@Test public void oneParamTest() {
-		assertEquals( "Test{0}", Message._( "test1" ) );
-		assertEquals( "Testfoo", Message._( "test1", "foo" ) );
-		assertEquals( "Testfoo", Message._( "test1", "foo", "bar" ) );
+		assertEquals( "Test{0}", Message.__( "test1" ) );
+		assertEquals( "Testfoo", Message.__( "test1", "foo" ) );
+		assertEquals( "Testfoo", Message.__( "test1", "foo", "bar" ) );
 	}
 
 	/**
 	 * Two-param test.
 	 */
 	@Test public void twoParamTest() {
-		assertEquals( "Test{0}{1}", Message._( "test2" ) );
-		assertEquals( "Test{1}{0}", Message._( "test3" ) );
-		assertEquals( "Testfoobar", Message._( "test2", "foo", "bar" ) );
-		assertEquals( "Testbarfoo", Message._( "test3", "foo", "bar" ) );
+		assertEquals( "Test{0}{1}", Message.__( "test2" ) );
+		assertEquals( "Test{1}{0}", Message.__( "test3" ) );
+		assertEquals( "Testfoobar", Message.__( "test2", "foo", "bar" ) );
+		assertEquals( "Testbarfoo", Message.__( "test3", "foo", "bar" ) );
 	}
 }

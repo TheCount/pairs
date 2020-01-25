@@ -44,7 +44,7 @@ import org.w3c.dom.Element;
 
 import org.w3c.dom.svg.SVGDocument;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * SVG resource convenience class.
@@ -79,7 +79,7 @@ class SVGResource extends AbstractImageResource {
 		super( Type.SVG, copyright );
 		URL resourceURL = ClassLoader.getSystemResource( resourceName );
 		if ( resourceURL == null ) {
-			throw new MissingResourceException( _( "error-loadingresource", resourceName ), ClassLoader.class.getName(), resourceName );
+			throw new MissingResourceException( __( "error-loadingresource", resourceName ), ClassLoader.class.getName(), resourceName );
 		}
 		String parserClassName = XMLResourceDescriptor.getXMLParserClassName();
 		SAXSVGDocumentFactory documentFactory = new SAXSVGDocumentFactory( parserClassName );

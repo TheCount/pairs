@@ -23,7 +23,7 @@ import java.io.IOException;
 import org.codehaus.jackson.*;
 import org.codehaus.jackson.map.*;
 
-import static pairs.util.Message._;
+import static pairs.util.Message.__;
 
 /**
  * Class representing a licence.
@@ -123,7 +123,7 @@ public class Licence {
 	public static Licence get( String key ) {
 		JsonNode licence = database.get( key );
 		if ( licence == null ) {
-			throw new IllegalArgumentException( _( "error-licence", key ) );
+			throw new IllegalArgumentException( __( "error-licence", key ) );
 		}
 		return new Licence( licence.get( "name" ).getTextValue(), licence.get( "resource" ).getTextValue() );
 	}
