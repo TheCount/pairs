@@ -20,8 +20,6 @@ package pairs;
 
 import javax.swing.*;
 
-import org.apache.log4j.BasicConfigurator;
-
 import pairs.ui.MainWindow;
 
 import pairs.util.Message;
@@ -30,11 +28,6 @@ import pairs.util.Message;
  * Main class.
  */
 public class Main {
-	static {
-		/* Init logger */
-		BasicConfigurator.configure();
-	}
-
 	/**
 	 * Entry point.
 	 *

@@ -18,9 +18,9 @@
 
 package pairs.util;
 
-import org.apache.log4j.BasicConfigurator;
+import org.apache.logging.log4j.Level;
 
-import org.apache.log4j.varia.NullAppender;
+import org.apache.logging.log4j.core.config.Configurator;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -35,7 +35,7 @@ public class MessageTest {
 	 * Global test setup.
 	 */
 	@BeforeClass public static void setup() {
-		BasicConfigurator.configure( new NullAppender() ); // silence the logger during the tests
+		Configurator.setRootLevel( Level.OFF ); // silence the logger during the tests
 	}
 
 	/**

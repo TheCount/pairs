@@ -67,7 +67,7 @@
 						<Export-Package>pairs.*</Export-Package>
 						<Private-Package>
 							org.apache.batik.*;-split-package:=merge-first,
-							org.apache.log4j.*,
+							org.apache.logging.log4j.*,
 							org.apache.xerces.*,
 							org.codehaus.jackson.*;-split-package:=merge-first,
 							org.w3c.css.sac.*;-split-package:=merge-first,
@@ -88,10 +88,14 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-			<scope>compile</scope>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.13.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.13.0</version>
 		</dependency>
 		<dependency>
 			<groupId>xerces</groupId>

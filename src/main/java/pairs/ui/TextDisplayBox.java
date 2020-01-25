@@ -23,7 +23,8 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import pairs.util.Resources;
 
@@ -34,7 +35,7 @@ class TextDisplayBox extends JDialog {
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger logger = Logger.getLogger( TextDisplayBox.class );
+	private static final Logger logger = LogManager.getLogger( TextDisplayBox.class );
 
 	/**
 	 * Creates a new text display box.

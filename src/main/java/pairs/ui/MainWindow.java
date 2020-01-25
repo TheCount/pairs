@@ -26,7 +26,8 @@ import java.util.prefs.Preferences;
 
 import javax.swing.*;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import pairs.data.CardPackage;
 
@@ -42,7 +43,7 @@ public class MainWindow extends JFrame implements ComponentListener, WindowState
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger logger = Logger.getLogger( MainWindow.class );
+	private static final Logger logger = LogManager.getLogger( MainWindow.class );
 
 	/**
 	 * Minimum window width.

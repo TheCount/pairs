@@ -24,7 +24,8 @@ import java.util.IllegalFormatException;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 /**
  * Message retrieval.
@@ -33,7 +34,7 @@ public final class Message {
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger logger = Logger.getLogger( Message.class );
+	private static final Logger logger = LogManager.getLogger( Message.class );
 
 	/**
 	 * Messages bundle.

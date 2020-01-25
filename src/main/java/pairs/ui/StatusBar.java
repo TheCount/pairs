@@ -23,7 +23,8 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import static pairs.util.Message.__;
 
@@ -34,7 +35,7 @@ class StatusBar extends JPanel {
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger logger = Logger.getLogger( StatusBar.class );
+	private static final Logger logger = LogManager.getLogger( StatusBar.class );
 
 	/**
 	 * Status message.

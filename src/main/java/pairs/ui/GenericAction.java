@@ -25,7 +25,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import pairs.util.Message;
 
@@ -38,7 +39,7 @@ abstract class GenericAction extends AbstractAction {
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger logger = Logger.getLogger( GenericAction.class );
+	private static final Logger logger = LogManager.getLogger( GenericAction.class );
 
 	/**
 	 * Parses a single VK_* key.

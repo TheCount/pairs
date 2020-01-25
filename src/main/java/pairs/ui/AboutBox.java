@@ -25,7 +25,8 @@ import java.util.Vector;
 
 import javax.swing.*;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import pairs.util.Copyright;
 import pairs.util.Licence;
@@ -39,7 +40,7 @@ class AboutBox extends JDialog {
 	/**
 	 * Logger for this class.
 	 */
-	private static final Logger logger = Logger.getLogger( AboutBox.class );
+	private static final Logger logger = LogManager.getLogger( AboutBox.class );
 
 	/**
 	 * Default text width in columns.
