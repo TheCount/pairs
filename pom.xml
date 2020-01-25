@@ -20,7 +20,7 @@
 	<groupId>pairs</groupId>
 	<artifactId>pairs</artifactId>
 	<packaging>bundle</packaging>
-	<version>0.1</version>
+	<version>0.1.1</version>
 	<name>pairs</name>
 	<url>http://maven.apache.org</url>
 
