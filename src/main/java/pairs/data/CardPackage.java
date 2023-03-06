@@ -24,10 +24,10 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
+import com.fasterxml.jackson.core.JsonParser;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import pairs.util.ImageResourceLoader;
 import pairs.util.Random;
@@ -162,12 +162,12 @@ public class CardPackage {
 	public static CardPackage get( String name ) {
 		try {
 			JsonNode packageNode = database.get( name );
-			String packageKey = packageNode.get( "key" ).getTextValue();
-			String packageResourceName = packageNode.get( "resource" ).getTextValue();
+			String packageKey = packageNode.get( "key" ).textValue();
+			String packageResourceName = packageNode.get( "resource" ).textValue();
 
 			String jsonText = Resources.loadResourceAsString( packageResourceName );
 			JsonNode packageResource = objectMapper.readTree( jsonText );
-			String packageDescriptionKey = packageResource.get( "descriptionKey" ).getTextValue();
+			String packageDescriptionKey = packageResource.get( "descriptionKey" ).textValue();
 			JsonNode pairs = packageResource.get( "pairs" );
 
 			int size = pairs.size();
@@ -177,13 +177,13 @@ public class CardPackage {
 				Card[] cardPair = new Card[ 2 ];
 				for( int j = 0; j != 2; ++j ) {
 					JsonNode card = pair.get( j );
-					Card.Type type = Card.Type.valueOf( Card.Type.class, card.get( "type" ).getTextValue() );
+					Card.Type type = Card.Type.valueOf( Card.Type.class, card.get( "type" ).textValue() );
 					switch( type ) {
 						case IMAGE:
-							cardPair[ j ] = new Card( ImageResourceLoader.load( card.get( "image" ).getTextValue() ) );
+							cardPair[ j ] = new Card( ImageResourceLoader.load( card.get( "image" ).textValue() ) );
 							break;
 						case TEXT:
-							cardPair[ j ] = new Card( card.get( "value" ).getTextValue() );
+							cardPair[ j ] = new Card( card.get( "value" ).textValue() );
 							break;
 					}
 				}
@@ -202,7 +202,7 @@ public class CardPackage {
 	 */
 	public static Vector<CardPackage> getAll() {
 		Vector<CardPackage> result = new Vector();
-		Iterator<String> fieldNameIterator = database.getFieldNames();
+		Iterator<String> fieldNameIterator = database.fieldNames();
 		while ( fieldNameIterator.hasNext() ) {
 			result.add( get( fieldNameIterator.next() ) );
 		}

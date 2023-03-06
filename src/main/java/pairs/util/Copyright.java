@@ -21,8 +21,9 @@ package pairs.util;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.codehaus.jackson.*;
-import org.codehaus.jackson.map.*;
+import com.fasterxml.jackson.core.JsonParser;
+
+import com.fasterxml.jackson.databind.*;
 
 import static pairs.util.Message.__;
 
@@ -113,8 +114,8 @@ public class Copyright {
 		if ( copyrightNode == null ) {
 			throw new IllegalArgumentException( __( "error-copyright", key ) );
 		}
-		String copyrightText = copyrightNode.get( "copyright" ).getTextValue();
-		return new Copyright( copyrightText, Licence.get( copyrightNode.get( "licence" ).getTextValue() ) );
+		String copyrightText = copyrightNode.get( "copyright" ).textValue();
+		return new Copyright( copyrightText, Licence.get( copyrightNode.get( "licence" ).textValue() ) );
 	}
 
 	/**
@@ -124,7 +125,7 @@ public class Copyright {
 	 */
 	public static Vector<Copyright> getAll() {
 		Vector<Copyright> result = new Vector();
-		Iterator<String> copyrightNames = database.getFieldNames();
+		Iterator<String> copyrightNames = database.fieldNames();
 		while ( copyrightNames.hasNext() ) {
 			result.add( get( copyrightNames.next() ) );
 		}

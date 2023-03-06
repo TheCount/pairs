@@ -20,8 +20,9 @@ package pairs.util;
 
 import java.io.IOException;
 
-import org.codehaus.jackson.*;
-import org.codehaus.jackson.map.*;
+import com.fasterxml.jackson.core.JsonParser;
+
+import com.fasterxml.jackson.databind.*;
 
 import static pairs.util.Message.__;
 
@@ -125,6 +126,6 @@ public class Licence {
 		if ( licence == null ) {
 			throw new IllegalArgumentException( __( "error-licence", key ) );
 		}
-		return new Licence( licence.get( "name" ).getTextValue(), licence.get( "resource" ).getTextValue() );
+		return new Licence( licence.get( "name" ).textValue(), licence.get( "resource" ).textValue() );
 	}
 }

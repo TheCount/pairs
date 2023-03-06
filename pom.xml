@@ -69,7 +69,9 @@
 							org.apache.batik.*;-split-package:=merge-first,
 							org.apache.logging.log4j.*,
 							org.apache.xerces.*,
-							org.codehaus.jackson.*;-split-package:=merge-first,
+							com.fasterxml.jackson.annotation.*;-split-package:=merge-first,
+							com.fasterxml.jackson.core.*;-split-package:=merge-first,
+							com.fasterxml.jackson.databind.*;-split-package:=merge-first,
 							org.w3c.css.sac.*;-split-package:=merge-first,
 							org.w3c.dom.*;-split-package:=merge-first,
 						</Private-Package>
@@ -104,9 +106,9 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.4</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.14.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

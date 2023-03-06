@@ -20,10 +20,10 @@ package pairs.util;
 
 import java.io.IOException;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
+import com.fasterxml.jackson.core.JsonParser;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static pairs.util.Message.__;
 
@@ -69,15 +69,15 @@ public class ImageResourceLoader {
 		ImageResource result;
 		try {
 			JsonNode imageNode = database.get( imageName );
-			String typeName = imageNode.get( "type" ).getTextValue();
+			String typeName = imageNode.get( "type" ).textValue();
 			ImageResource.Type type = Enum.valueOf( ImageResource.Type.class, typeName );
 
-			String copyrightName = imageNode.get( "copyright" ).getTextValue();
+			String copyrightName = imageNode.get( "copyright" ).textValue();
 			Copyright copyright = Copyright.get( copyrightName );
 
 			switch ( type ) {
 				case SVG:
-					result = new SVGResource( imageNode.get( "resource" ).getTextValue(), copyright );
+					result = new SVGResource( imageNode.get( "resource" ).textValue(), copyright );
 					break;
 				default:
 					throw new AssertionError( "This should not happen" );
